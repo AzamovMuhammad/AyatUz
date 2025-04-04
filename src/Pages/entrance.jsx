@@ -7,20 +7,20 @@ const EntrancePart = ({ onComplete }) => {
   const [progress, setProgress] = useState(0);
 
   useEffect(() => {
-    setTimeout(() => {
-      setShowText(false);
-      setLoading(true);
-      let interval = setInterval(() => {
-        setProgress((oldProgress) => {
-          if (oldProgress >= 100) {
-            clearInterval(interval);
-            setTimeout(onComplete, 500); // Sahifani o'zgartirish
-            return 100;
-          }
-          return oldProgress + 10;
-        });
-      }, 300);
-    }, 5000);
+    // setTimeout(() => {
+    //   setShowText(false);
+    //   setLoading(true);
+    //   let interval = setInterval(() => {
+    //     setProgress((oldProgress) => {
+    //       if (oldProgress >= 100) {
+    //         clearInterval(interval);
+    //         setTimeout(onComplete, 500); // Sahifani o'zgartirish
+    //         return 100;
+    //       }
+    //       return oldProgress + 10;
+    //     });
+    //   }, 300);
+    // }, 10000);
   }, [onComplete]);
 
   return (

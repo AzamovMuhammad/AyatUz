@@ -1,7 +1,10 @@
+*{
+    margin: 0px;
+}
 .ayat-quiz-container {
     width: 100vw;
     height: 100vh;
-    background: url("background.jpg") center/cover no-repeat;
+    background: url("../assets/image/AyatLoadingImg.jpg") center/cover no-repeat;
     display: flex;
     justify-content: center;
     align-items: center;
@@ -12,18 +15,18 @@
   }
   
   .ayat-content {
-    background: rgba(0, 0, 0, 0.6);
+    background: rgba(0, 0, 0, 0.745);
     padding: 20px;
     border-radius: 10px;
   }
   
   h1 {
-    font-size: 28px;
+    font-size: 38px;
     color: #ff9f43;
   }
   
   p {
-    font-size: 18px;
+    font-size: 28px;
   }
   
   span {
@@ -33,6 +36,9 @@
   
   .loading-container {
     text-align: center;
+    background: rgba(0, 0, 0, 0.6);
+    padding: 20px;
+    border-radius: 10px;
   }
   
   .progress-bar {
