@@ -8,8 +8,6 @@
     flex-direction: column;
     justify-content: center;
     align-items: center;
-    gap: 40px;
-    border: 1px solid red;
   }
   
   .language-list {
@@ -20,14 +18,14 @@
     flex-wrap: wrap;
     gap: 10px;
     margin-bottom: 20px;
-    border: 1px solid red;
-    width: 50%;
+    width: 70%;
     padding: 20px;
   }
   
   .language-option {
     display: flex;
     align-items: center;
+    justify-content: center;
     width: 40%;
     gap: 10px;
     padding: 10px 20px;
@@ -44,7 +42,10 @@
   }
   
   .flag {
-    font-size: 20px;
+    width: 25px;
+    height: 25px;
+    border-radius: 50%;
+    border: 1px solid #d3d3d3;
   }
   
   .continue-btn {
