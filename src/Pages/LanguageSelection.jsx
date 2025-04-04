@@ -7,7 +7,7 @@ const languages = [
   { code: "ru", name: "Py", flag: "🇷🇺" },
   { code: "en", name: "En", flag: "🇬🇧" },
   { code: "tr", name: "Tr", flag: "🇹🇷" },
-  { code: "kaa", name: "Қорақалпоқ", flag: "🇰🇿" },
+  { code: "kaa", name: "Qr", flag: "🇰р" },
 ];
 
 const LanguageSelection = () => {

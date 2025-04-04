@@ -7,11 +7,12 @@ function App() {
 
   return (
     <div>
-      {!loadingComplete ? (
+      {/* {!loadingComplete ? (
         <EntrancePart onComplete={() => setLoadingComplete(true)} />
       ) : (
         <LanguageSelection/>
-      )}
+      )} */}
+      <LanguageSelection/>
     </div>
   );
 }
