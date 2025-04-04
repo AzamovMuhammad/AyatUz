@@ -1,5 +1,6 @@
 import React, { useState } from "react";
 import EntrancePart from "./Pages/entrance";
+import LanguageSelection from "./Pages/LanguageSelection";
 
 function App() {
   const [loadingComplete, setLoadingComplete] = useState(false);
@@ -9,7 +10,7 @@ function App() {
       {!loadingComplete ? (
         <EntrancePart onComplete={() => setLoadingComplete(true)} />
       ) : (
-        <h1>Keyingi Sahifa</h1>
+        <LanguageSelection/>
       )}
     </div>
   );
