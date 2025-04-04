@@ -7,20 +7,20 @@ const EntrancePart = ({ onComplete }) => {
   const [progress, setProgress] = useState(0);
 
   useEffect(() => {
-    // setTimeout(() => {
-    //   setShowText(false);
-    //   setLoading(true);
-    //   let interval = setInterval(() => {
-    //     setProgress((oldProgress) => {
-    //       if (oldProgress >= 100) {
-    //         clearInterval(interval);
-    //         setTimeout(onComplete, 500); // Sahifani o'zgartirish
-    //         return 100;
-    //       }
-    //       return oldProgress + 10;
-    //     });
-    //   }, 300);
-    // }, 10000);
+    setTimeout(() => {
+      setShowText(false);
+      setLoading(true);
+      let interval = setInterval(() => {
+        setProgress((oldProgress) => {
+          if (oldProgress >= 100) {
+            clearInterval(interval);
+            setTimeout(onComplete, 500); // Sahifani o'zgartirish
+            return 100;
+          }
+          return oldProgress + 10;
+        });
+      }, 300);
+    }, 5000);
   }, [onComplete]);
 
   return (
@@ -28,7 +28,7 @@ const EntrancePart = ({ onComplete }) => {
       {showText ? (
         <div className="ayat-content">
           <h1>Ayat Quiz</h1>
-          <p>Qur'onni mo'minlar uchun shifo va rahmat o'laroq nozil qilurmiz</p>
+          <p>Qur'onni mo'minlar uchun shifo va rahmat o'laroq nozil qilurmiz.</p>
           <span>Isro, 82</span>
         </div>
       ) : (
