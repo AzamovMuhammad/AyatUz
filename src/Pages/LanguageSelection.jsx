@@ -1,6 +1,5 @@
 import React, { useState, useEffect } from "react";
 import "../style/LanguageSelection.css";
-import Next from "./Next";
 
 import uzFlag from "../assets/image/flags/uz.png";
 import ruFlag from "../assets/image/flags/ru.png";

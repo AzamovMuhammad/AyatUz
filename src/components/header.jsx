@@ -10,10 +10,10 @@ function Header() {
           Ayat<sup>Quiz</sup>
         </div>
         <ul>
-            <Link className="link" >Bosh sahifa</Link>
-            <Link className="link" >Saqlanganlar</Link>
-            <Link className="link" >Qur'on haqida</Link>
-            <Link className="link" >Ko'proq</Link>
+            <Link className="link" to="/" >Bosh sahifa</Link>
+            <Link className="link" to="/save" >Saqlanganlar</Link>
+            <Link className="link" to="/about" >Qur'on haqida</Link>
+            <Link className="link" to="/more" >Ko'proq</Link>
         </ul>
       </nav>
     </div>
