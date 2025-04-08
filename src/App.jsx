@@ -11,7 +11,7 @@ function App() {
 
   return (
     <BrowserRouter>
-    <Header/>
+    {!loadingComplete ? null : <Header />}
       <Routes>
         <Route path="/" element={!loadingComplete ? <EntrancePart onComplete={() => setLoadingComplete(true)} /> : <Navigate to="/language" />} />
         <Route path="/language" element={<LanguageSelection />} />
