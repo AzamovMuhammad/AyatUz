@@ -1,0 +1,64 @@
+.settings-menu {
+    width: 100%;
+    max-width: 400px; /* Maksimal kenglik */
+    background-color: #f6ede6; /* Fon rangi */
+    padding: 20px;
+    border-radius: 10px;
+    display: flex;
+    flex-direction: column;
+    gap: 15px;
+  }
+  
+  .menu-item {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 12px 16px;
+    background: transparent;
+    border-radius: 10px;
+    transition: background 0.3s ease-in-out;
+  }
+  
+  .menu-item:hover {
+    background: rgba(0, 0, 0, 0.05);
+  }
+  
+  .menu-text {
+    font-size: 16px;
+    font-weight: 600;
+    color: #333;
+  }
+  
+  .menu-icon {
+    width: 36px;
+    height: 36px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border-radius: 50%;
+    background-color: #e0c9b8;
+    color: #6b4f4f;
+    font-size: 18px;
+  }
+  
+  /* 📱 Mobil va planshetlar uchun responsiv */
+  @media (max-width: 768px) {
+    .settings-menu {
+      max-width: 90%;
+    }
+  
+    .menu-item {
+      padding: 10px 12px;
+    }
+  
+    .menu-text {
+      font-size: 14px;
+    }
+  
+    .menu-icon {
+      width: 32px;
+      height: 32px;
+      font-size: 16px;
+    }
+  }
+  
