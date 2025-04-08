@@ -7,6 +7,7 @@ import ruFlag from "../assets/image/flags/ru.png";
 import enFlag from "../assets/image/flags/en.png";
 import trFlag from "../assets/image/flags/tr.png";
 import kaaFlag from "../assets/image/flags/kaa.png";
+import { useNavigate } from "react-router-dom";
 
 const languages = [
   { code: "uz", name: "Uz", flag: uzFlag },
@@ -18,11 +19,12 @@ const languages = [
 
 const LanguageSelection = () => {
   const [selectedLang, setSelectedLang] = useState("uz"); // Default Uzbek
+  const navigate = useNavigate();
 
   useEffect(() => {
     const savedLang = localStorage.getItem("selectedLanguage");
     if (savedLang) {
-    <Next/>
+      navigate('/home')
     }
   }, []);
 
@@ -32,7 +34,7 @@ const LanguageSelection = () => {
 
   const handleContinue = () => {
     localStorage.setItem("selectedLanguage", selectedLang);
-    return <Next/>
+    navigate("/home"); 
   };
 
   return (
