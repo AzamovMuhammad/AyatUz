@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
 import { BrowserRouter, Route, Routes, Navigate } from "react-router-dom";
 import EntrancePart from "./Pages/entrance";
 import LanguageSelection from "./Pages/LanguageSelection";
@@ -9,13 +9,28 @@ import Save from "./Pages/Save";
 import About from "./Pages/About";
 
 function App() {
-  const [loadingComplete, setLoadingComplete] = useState(false);
+  const [loadingComplete, setLoadingComplete] = useState(
+    sessionStorage.getItem("loadingComplete") === "true"
+  );
+
+  useEffect(() => {
+    sessionStorage.setItem("loadingComplete", loadingComplete);
+  }, [loadingComplete]);
 
   return (
     <BrowserRouter>
-    {!loadingComplete ? null : <Header />}
+      {loadingComplete && <Header />}
       <Routes>
-        <Route path="/" element={!loadingComplete ? <EntrancePart onComplete={() => setLoadingComplete(true)} /> : <Navigate to="/language" />} />
+        <Route
+          path="/"
+          element={
+            !loadingComplete ? (
+              <EntrancePart onComplete={() => setLoadingComplete(true)} />
+            ) : (
+              <Navigate to="/language" />
+            )
+          }
+        />
         <Route path="/language" element={<LanguageSelection />} />
         <Route path="/home" element={<Home />} />
         <Route path="/more" element={<More />} />
@@ -27,3 +42,4 @@ function App() {
 }
 
 export default App;
+
