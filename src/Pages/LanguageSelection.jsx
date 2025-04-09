@@ -21,7 +21,7 @@ const LanguageSelection = () => {
   const navigate = useNavigate();
 
   useEffect(() => {
-    const savedLang = sessionStorage.getItem("selectedLanguage");
+    const savedLang = localStorage.getItem("selectedLanguage");
     if (savedLang) {
       navigate('/home')
     }
@@ -32,7 +32,7 @@ const LanguageSelection = () => {
   };
 
   const handleContinue = () => {
-    sessionStorage.setItem("selectedLanguage", selectedLang);
+    localStorage.setItem("selectedLanguage", selectedLang);
     navigate("/home"); 
   };
 
