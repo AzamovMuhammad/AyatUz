@@ -14,9 +14,8 @@ nav{
     align-items: center;
     justify-content: space-between;
 }
-nav .logo{
-    font-weight: 700;
-    font-size: 20px;
+nav .logo img{
+    width:19px;
     margin-left: 40px;
     cursor: pointer;
 }
