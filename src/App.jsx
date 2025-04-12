@@ -3,10 +3,11 @@ import { BrowserRouter, Route, Routes, Navigate, useLocation } from "react-route
 import EntrancePart from "./Pages/Entrance";
 import LanguageSelection from "./Pages/LanguageSelection";
 import Header from "./components/Header";
-import Home from "./Pages/Home";
+import Home from "./Pages/home";
 import More from "./Pages/More";
 import Save from "./Pages/Save";
 import About from "./Pages/About";
+import NotFoundPage from "./Pages/notFoundPage";
 
 function App() {
   const [loadingComplete, setLoadingComplete] = useState(false);
@@ -50,6 +51,7 @@ function AppContent({ loadingComplete, setLoadingComplete, languageSelected }) {
         <Route path="/more" element={<More />} />
         <Route path="/save" element={<Save />} />
         <Route path="/about" element={<About />} />
+        <Route path="*" element={<NotFoundPage />} />
       </Routes>
     </>
   );
