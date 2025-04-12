@@ -5,7 +5,6 @@ import uzFlag from "../assets/image/flags/uz.png";
 import ruFlag from "../assets/image/flags/ru.png";
 import enFlag from "../assets/image/flags/en.png";
 import trFlag from "../assets/image/flags/tr.png";
-import kaaFlag from "../assets/image/flags/kaa.png";
 import { useNavigate } from "react-router-dom";
 
 const languages = [
@@ -13,7 +12,6 @@ const languages = [
   { code: "ru", name: "Py", flag: ruFlag },
   { code: "en", name: "En", flag: enFlag },
   { code: "tr", name: "Tr", flag: trFlag },
-  { code: "kaa", name: "Qr", flag: kaaFlag },
 ];
 
 const LanguageSelection = () => {
