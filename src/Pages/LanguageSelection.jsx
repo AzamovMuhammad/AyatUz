@@ -1,18 +1,10 @@
 import React, { useState, useEffect } from "react";
 import "../style/LanguageSelection.css";
 
-import uzFlag from "../assets/image/flags/uz.png";
-import ruFlag from "../assets/image/flags/ru.png";
-import enFlag from "../assets/image/flags/en.png";
-import trFlag from "../assets/image/flags/tr.png";
 import { useNavigate } from "react-router-dom";
 
-const languages = [
-  { code: "uz", name: "Uz", flag: uzFlag },
-  { code: "ru", name: "Py", flag: ruFlag },
-  { code: "en", name: "En", flag: enFlag },
-  { code: "tr", name: "Tr", flag: trFlag },
-];
+// tilni import qilyapmiz
+import languages from '../language/language'
 
 const LanguageSelection = () => {
   const [selectedLang, setSelectedLang] = useState("uz"); // Default Uzbek
@@ -33,10 +25,13 @@ const LanguageSelection = () => {
     localStorage.setItem("selectedLanguage", selectedLang);
     navigate("/home"); 
   };
+ 
+  // tanlangan tilga mos tilni arraydan ushlab olish
+  const currentLang = languages.find((lang) => lang.code === selectedLang)
 
   return (
     <div className="language-container">
-      <h2>Tilni tanlash</h2>
+      <h2>{currentLang?.langPart.h2}</h2>
       <div className="language-list">
         {languages.map((lang) => (
           <div
@@ -49,7 +44,7 @@ const LanguageSelection = () => {
         ))}
       </div>
       <button className="continue-btn" onClick={handleContinue}>
-        Davom etish
+      {currentLang?.langPart.button}
       </button>
     </div>
   );
