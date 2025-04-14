@@ -13,10 +13,11 @@ const languages = [
       button: "Davom etish",
     },
     homePart: {
-      home_title:"Assalomu alaykum aziz dindoshim!",
-      home_text: "Mazkur testda siz Qur’oni Karim oyatlarini tinglab, ularni qaysi suraga tegishli ekanligini topishingiz kerak.",
+      home_title: "Assalomu alaykum aziz dindoshim!",
+      home_text:
+        "Mazkur testda siz Qur’oni Karim oyatlarini tinglab, ularni qaysi suraga tegishli ekanligini topishingiz kerak.",
       home_btn: "Testni topshirish",
-    }
+    },
   },
   {
     code: "ru",
@@ -27,10 +28,11 @@ const languages = [
       button: "Продолжать",
     },
     homePart: {
-      home_title:"Ассаламу алейкум, дорогой",
-      home_text: "В этом тесте вам предстоит прослушать аяты Священного Корана и найти, к какой суре они относятся.",
+      home_title: "Ассаламу алейкум, дорогой",
+      home_text:
+        "В этом тесте вам предстоит прослушать аяты Священного Корана и найти, к какой суре они относятся.",
       home_btn: "Начать тест",
-    }
+    },
   },
   {
     code: "en",
@@ -41,10 +43,11 @@ const languages = [
       button: "Continue",
     },
     homePart: {
-      home_title:"Assalamu Alaikum, my friend",
-      home_text: "In this test, you have to listen to the verses of the Holy Qur'an and find which surah they belong to.",
+      home_title: "Assalamu Alaikum, my friend",
+      home_text:
+        "In this test, you have to listen to the verses of the Holy Qur'an and find which surah they belong to.",
       home_btn: "Start the test",
-    }
+    },
   },
   {
     code: "tr",
@@ -55,10 +58,11 @@ const languages = [
       button: "Devam etmek",
     },
     homePart: {
-      home_title:"Selamun Aleyküm aziz mümin kardeşim",
-      home_text: "Bu testte Kur'an-ı Kerim'in ayetlerini dinlemeli ve hangi sureye ait olduklarını bulmalısınız.",
+      home_title: "Selamun Aleyküm aziz mümin kardeşim",
+      home_text:
+        "Bu testte Kur'an-ı Kerim'in ayetlerini dinlemeli ve hangi sureye ait olduklarını bulmalısınız.",
       home_btn: "Testi başlat",
-    }
+    },
   },
 ];
 
