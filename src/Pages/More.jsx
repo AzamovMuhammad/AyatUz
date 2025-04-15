@@ -1,14 +1,18 @@
 import React from "react";
 import { FaArrowRight, FaPaperPlane, FaStar, FaComment } from "react-icons/fa";
-
+import languages from "../language/language";
 import "../style/more.css";
 
 function More() {
+
+  const savedLang = localStorage.getItem("selectedLanguage")
+  const currentLang = languages.find((lang) => lang.code === savedLang)
+
   const menuItems = [
-    { text: "Til", icon: <FaArrowRight /> },
-    { text: "Ilovani do‘stlarga ulashing", icon: <FaPaperPlane /> },
-    { text: "Ilovani baholang", icon: <FaStar /> },
-    { text: "Dasturchilar bilan bog‘lanish", icon: <FaComment /> },
+    { text: `${currentLang?.morePart.btn1}`, icon: <FaArrowRight /> },
+    { text: `${currentLang?.morePart.btn2}`, icon: <FaPaperPlane /> },
+    { text: `${currentLang?.morePart.btn3}`, icon: <FaStar /> },
+    { text: `${currentLang?.morePart.btn4}`, icon: <FaComment /> },
   ];
 
   return (
