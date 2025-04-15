@@ -1,12 +1,12 @@
 import React from "react";
-import { Link } from "react-router-dom";
+import { Link, NavLink } from "react-router-dom";
 import '../style/header.css'
 
 import languages from "../language/language";
 
 import logoImg from '../assets/image/brandLogo/ayatLogo.png'
 
-function Header() {
+function Sidebar() {
   const savedLang = localStorage.getItem("selectedLanguage");
 
   const currentLang = languages.find((lang) => lang.code === savedLang);
@@ -17,14 +17,14 @@ function Header() {
           <img src={logoImg} alt="logo" />
         </div>
         <ul>
-            <Link className="link" to="/home" >{currentLang?.header.btn1}</Link>
-            <Link className="link" to="/save" >{currentLang?.header.btn2}</Link>
-            <Link className="link" to="/about" >{currentLang?.header.btn3}</Link>
-            <Link className="link" to="/more" >{currentLang?.header.btn4}</Link>
+            <NavLink className="link" to="/user/home" >{currentLang?.header.btn1}</NavLink>
+            <NavLink className="link" to="/user/save" >{currentLang?.header.btn2}</NavLink>
+            <NavLink className="link" to="/user/about" >{currentLang?.header.btn3}</NavLink>
+            <NavLink className="link" to="/user/more" >{currentLang?.header.btn4}</NavLink>
         </ul>
       </nav>
     </div>
   );
 }
 
-export default Header;
+export default Sidebar;

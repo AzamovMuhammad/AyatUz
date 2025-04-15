@@ -13,7 +13,7 @@ const LanguageSelection = () => {
   useEffect(() => {
     const savedLang = localStorage.getItem("selectedLanguage");
     if (savedLang) {
-      navigate('/home')
+      navigate('/user/home')
     }
   }, []);
 
@@ -23,7 +23,7 @@ const LanguageSelection = () => {
 
   const handleContinue = () => {
     localStorage.setItem("selectedLanguage", selectedLang);
-    navigate("/home"); 
+    navigate("/user/home"); 
   };
  
   // tanlangan tilga mos tilni arraydan ushlab olish
