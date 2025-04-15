@@ -1,25 +1,25 @@
 .morePart{
+  min-height: 100vh;
   display: flex;
   flex-direction: row;
+  align-items: center;
+  justify-content: center;
   background-color: #F7F0E9;
+  margin-left: 30px;
 }
-
-.settings-menu {
-  width: 280px;
-  height: 90vh;
-  padding: 20px;
+.settings-menu{
   display: flex;
-  flex-direction: column;
-  gap: 15px;
-  position: fixed;
-  top: 60px;
-  left: 0;
-  border-right:1px solid #6b4f4f ;
+  align-items: center;
+  justify-content: center;
+  flex-direction: row;
+  gap: 40px;
+  flex-wrap: wrap;
 }
 
 .menu-item {
+  width: 300px;
+  border:1px solid #593A28;
   display: flex;
-  justify-content: space-between;
   align-items: center;
   padding: 12px 16px;
   background: transparent;
