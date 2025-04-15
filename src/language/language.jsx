@@ -24,6 +24,10 @@ const languages = [
       btn3:"Qur'on haiqda",
       btn4:"Ko'proq",
     },
+    notFound:{
+      p:"Bu xato!",
+      h3:"Ushbu serverda so'ralgan url topilmadi. Biz bilgan hamma narsa shu."
+    },
   },
   {
     code: "ru",
@@ -44,6 +48,10 @@ const languages = [
       btn2:"Сохранено",
       btn3:"О Коране",
       btn4:"Более",
+    },
+    notFound:{
+      p:"Это ошибка!",
+      h3:"Запрошенный URL не найден на этом сервере. Это все, что мы знаем."
     },
   },
   {
@@ -66,6 +74,10 @@ const languages = [
       btn3:"the Qur'an",
       btn4:"More",
     },
+    notFound:{
+      p:"The error!",
+      h3:"The requested url was not found on this server. That's all we know."
+    },
   },
   {
     code: "tr",
@@ -86,6 +98,10 @@ const languages = [
       btn2:"Kaydedildi",
       btn3:"Kuran hakkında",
       btn4:"Daha",
+    },
+    notFound:{
+      p:"Bu bir hatadır!",
+      h3:"İstenen URL bu sunucuda bulunamadı. Bizim bildiğimiz bu kadar."
     },
   },
 ];

@@ -1,8 +1,12 @@
 import React from 'react'
 import logo from '../assets/image/brandLogo/ayatLogo.png'
 import '../style/notFoundPage.css'
+import languages from '../language/language'
 
 function NotFoundPage() {
+
+  const savedLang = localStorage.getItem("selectedLanguage")
+  const currentLang = languages.find((lang) => lang.code === savedLang)
   return (
     <div className='notPage'>
         <div className='notPageImg'>
@@ -10,8 +14,8 @@ function NotFoundPage() {
         </div>
         <div className='notPageText'>
             <h1>404</h1>
-            <p>Bu xato!</p>
-            <h3>Ushbu serverda so'ralgan url topilmadi. Biz bilgan hamma narsa shu.</h3>
+            <p>{currentLang?.notFound.p}</p>
+            <h3>{currentLang?.notFound.h3}</h3>
         </div>
     </div>
   )
