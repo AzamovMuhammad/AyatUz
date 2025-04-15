@@ -9,16 +9,16 @@ body{
     justify-content: center;
     flex-wrap: wrap;
     gap: 20px;
-    padding: 40px 0px;
+    padding: 20px 0px;
 }
 .notPageImg{
-    width: clamp(300px, 50vw, 550px);
+    width: clamp(200px, 50vw, 400px);
     display: flex;
     align-items: center;
     justify-content: center;
 }
 .notPageImg img {
-    width: 50%;
+    width: 60%;
 }
 .notPageText{
     width: clamp(300px, 50vw, 48%);
