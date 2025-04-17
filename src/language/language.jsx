@@ -34,6 +34,13 @@ const languages = [
       btn3: "Ilovani baholang",
       btn4: "Dasturchilar bilan bog‘lanish",
     },
+    testTypePart: {
+      h1:"Iltimos, test turini tanlang",
+      btn1:"Bosqichma-bosqich",
+      btn2:"Butun Qur'on bo'yicha",
+      btn3:"Juz bo'yicha",
+      btn4:"Sura bo'yicha",
+    },
   },
   {
     code: "ru",
@@ -65,6 +72,13 @@ const languages = [
       btn3: "Оцените приложение",
       btn4: "Связаться с разработчиками",
     },
+    testTypePart: {
+      h1:"Пожалуйста, выберите тип теста",
+      btn1:"Шаг за шагом",
+      btn2:"По всему Корану",
+      btn3:"По Джузу",
+      btn4:"По суре",
+    },
   },
   {
     code: "en",
@@ -95,6 +109,13 @@ const languages = [
       btn2:"Share the app with friends",
       btn3:"Rate the app",
       btn4:"Contact the developers",
+    },    
+    testTypePart: {
+      h1:"Please select a test type",
+      btn1:"Step by step",
+      btn2:"By Holy Qur'an",
+      btn3:"By juz",
+      btn4:"By Sura",
     },
   },
   {
@@ -126,6 +147,13 @@ const languages = [
       btn2:"Uygulamayı arkadaşlarınızla paylaşın",
       btn3:"Uygulamayı oyla",
       btn4:"Geliştiricilerle iletişim kurun",
+    },
+    testTypePart: {
+      h1:"Lütfen bir test türü seçin",
+      btn1:"Adım adım",
+      btn2:"Kur'an'ın tamamına göre",
+      btn3:"Cüz tarafından",
+      btn4:"sureye göre",
     },
   },
 ];
