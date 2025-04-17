@@ -3,6 +3,7 @@ import "../style/testType.css";
 
 import img from "../assets/image/testType/Quran_2.svg";
 import { FaQuestion } from "react-icons/fa";
+import languages from "../language/language";
 
 function openModal() {
     const questionModal = document.querySelector('.questionModal')
@@ -12,8 +13,10 @@ function closeModal() {
     const questionModal = document.querySelector('.questionModal')
     questionModal.style.display = "none"
 }
-function TestType() {
 
+function TestType() {
+    const savedLang = localStorage.getItem("selectedLanguage");
+    const currentLang = languages.find((lang) => lang.code === savedLang);
 
 
   return (
@@ -25,21 +28,21 @@ function TestType() {
       </div>
       <div className="questionModal">
         <div className="middleDiv">
-            <p className="bosqich">Lorem ipsum dolor sit amet consectetur adipisicing elit. Ratione, fuga quo? Vitae id doloribus ipsum labore! Quia cum mollitia provident commodi iusto expedita tempora unde ex dolore. Alias mollitia tempora assumenda atque iste reprehenderit!</p>
-            <p className="butun">Lorem ipsum dolor sit amet consectetur adipisicing elit. Suscipit voluptates vel eos, explicabo nobis dolor saepe quas. Aliquam, explicabo! Aliquid ut odit at inventore odio cupiditate natus officia praesentium eius ipsum, hic et iste?</p>
-            <p className="juz">Lorem ipsum dolor sit amet consectetur adipisicing elit. Repellat deserunt veniam aspernatur cum, qui enim obcaecati? Numquam at adipisci, atque, libero deleniti ipsam soluta magnam recusandae optio incidunt odio sit ut vitae esse eligendi.</p>
-            <p className="sura">Lorem ipsum dolor, sit amet consectetur adipisicing elit. Pariatur minima saepe voluptatem ducimus? Doloribus alias et, autem similique nostrum voluptatem? Rem, dolores nemo doloribus vel quos consectetur illo dicta aperiam!</p>
-            <h3>Qur'oni Karim oyatlarini zavq bilan tinglang va toping!</h3>
-            <button onClick={closeModal}>Tushunarli, rahmat</button>
+            <p className="bosqich">{currentLang?.testTypePart.p1}</p>
+            <p className="butun">{currentLang?.testTypePart.p2}</p>
+            <p className="juz">{currentLang?.testTypePart.p3}</p>
+            <p className="sura">{currentLang?.testTypePart.p4}</p>
+            <h3>{currentLang?.testTypePart.h3}</h3>
+            <button onClick={closeModal}>{currentLang?.testTypePart.closeBtn}</button>
         </div>
       </div>
       <img src={img} alt="" />
-      <h1>Iltimos, test turini tanlang</h1>
+      <h1>{currentLang?.testTypePart.h1}</h1>
       <div className="btns">
-        <button>Bosqichma-bosqich</button>
-        <button>Butun Qur’on bo’yicha</button>
-        <button>Juz bo’yicha</button>
-        <button>Sura bo’yicha</button>
+        <button>{currentLang?.testTypePart.btn1}</button>
+        <button>{currentLang?.testTypePart.btn2}</button>
+        <button>{currentLang?.testTypePart.btn3}</button>
+        <button>{currentLang?.testTypePart.btn4}</button>
       </div>
     </div>
   );
