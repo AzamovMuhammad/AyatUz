@@ -17,6 +17,7 @@ import NotFoundPage from "./Pages/notFoundPage";
 import UserLayout from "./components/UserLayout";
 import TestType from "./Pages/TestType";
 import Stage from "./Pages/Stage";
+import EntryTest from "./Pages/entryTest";
 
 function App() {
   const [loadingComplete, setLoadingComplete] = useState(false);
@@ -63,6 +64,7 @@ function AppContent({ loadingComplete, setLoadingComplete, languageSelected }) {
         <Route path="stage" element={<Stage />} />
         <Route path="*" element={<NotFoundPage />} />
       </Route>
+      <Route path="/entry" element={<EntryTest />} />
     </Routes>
   );
 }
