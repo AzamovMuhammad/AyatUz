@@ -1,5 +1,6 @@
 import React from "react";
 import "../style/testType.css";
+import { useNavigate } from "react-router-dom";
 
 import img from "../assets/image/testType/Quran_2.svg";
 import { FaQuestion } from "react-icons/fa";
@@ -17,6 +18,7 @@ function closeModal() {
 function TestType() {
     const savedLang = localStorage.getItem("selectedLanguage");
     const currentLang = languages.find((lang) => lang.code === savedLang);
+    const navigate = useNavigate()
 
 
   return (
@@ -39,10 +41,10 @@ function TestType() {
       <img src={img} alt="" />
       <h1>{currentLang?.testTypePart.h1}</h1>
       <div className="btns">
-        <button>{currentLang?.testTypePart.btn1}</button>
-        <button>{currentLang?.testTypePart.btn2}</button>
-        <button>{currentLang?.testTypePart.btn3}</button>
-        <button>{currentLang?.testTypePart.btn4}</button>
+        <button onClick={() => {navigate(`/user/stage`)}}>{currentLang?.testTypePart.btn1}</button>
+        <button onClick={() => {navigate(`/user/stage`)}}>{currentLang?.testTypePart.btn2}</button>
+        <button onClick={() => {navigate(`/user/stage`)}}>{currentLang?.testTypePart.btn3}</button>
+        <button onClick={() => {navigate(`/user/stage`)}}>{currentLang?.testTypePart.btn4}</button>
       </div>
     </div>
   );
