@@ -21,9 +21,9 @@ function FinalResult() {
         <p>{score} ta savolga to‘g‘ri javob berdingiz</p>
         <button
           className="main-btn"
-          onClick={() => navigate(isPassed ? '/level2' : '/')}
+          onClick={() => navigate(isPassed ? '/level2' : '/user/stage')}
         >
-          {isPassed ? 'Keyingi bosqich →' : 'Qayta topshirish ↻'}
+          {isPassed ? 'Keyingi bosqich' : 'Qayta topshirish'}
         </button>
 
         <div className="actions">
