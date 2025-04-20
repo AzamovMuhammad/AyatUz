@@ -1,5 +1,6 @@
 import React, { useState, useRef, useEffect } from "react";
 import { FaPlay, FaCheckCircle, FaTimesCircle } from "react-icons/fa";
+import { FaArrowLeftLong } from "react-icons/fa6";
 import { useNavigate } from "react-router-dom";
 import "../style/QuestionCard.css";
 import falaq from "../assets/audio/falaq.mp3";
@@ -198,7 +199,7 @@ const QuestionCard = () => {
       <div className="card">
         <div className="header">
           <button onClick={openModal} className="back-btn">
-            ←
+            <FaArrowLeftLong/>
           </button>
           <h2>
             {current + 1}-savol / {questions.length} savol

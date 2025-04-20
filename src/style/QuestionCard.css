@@ -15,21 +15,31 @@
   
   .header h2 {
     margin-bottom: 4px;
-    font-size: 1.2rem;
+    font-size: 1.6rem;
     color: #5e3f2c;
+    text-align: center;
   }
   
   .header p {
-    font-size: 0.9rem;
+    font-size: 1.1rem;
     color: #333;
+    text-align: center;
   }
   
   .back-btn {
     background: none;
     border: none;
     font-size: 1.2rem;
-    color: #5e3f2c;
+    color: white;
     cursor: pointer;
+    width: 40px;
+    height: 40px;
+    border: 1px solid #5e3f2c;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background: #5e3f2c;
   }
   
   .audio-play {
@@ -130,7 +140,7 @@
     top: 0;
     left: 0;
     background: rgba(0, 0, 0, 0.644);
-    display: none;
+    display: noneh;
     align-items: center;
     justify-content: center;
 }
