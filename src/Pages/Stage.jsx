@@ -3,6 +3,7 @@ import { FaLock, FaPlay } from "react-icons/fa";
 import "../style/stage.css";
 
 import { useNavigate } from "react-router-dom";
+import { FaArrowLeftLong } from "react-icons/fa6";
 
 const levels = [
   { id: 1, name: "1-bosqich", unlocked: true },
@@ -20,6 +21,9 @@ function Stage() {
 
   return (
     <div className="level-container">
+      <button className="shadow" >
+        <FaArrowLeftLong />
+      </button>
       <h1 className="intro-text">Bismillahir rohmanir rohiym, boshladik!</h1>
       {levels.map((level) => (
         <div

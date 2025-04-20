@@ -1,8 +1,12 @@
 import React, { useState, useRef, useEffect } from "react";
 import { FaPlay, FaCheckCircle, FaTimesCircle } from "react-icons/fa";
 import { FaArrowLeftLong } from "react-icons/fa6";
+import { FaArrowRight } from "react-icons/fa6";
 import { useNavigate } from "react-router-dom";
 import "../style/QuestionCard.css";
+
+
+
 import falaq from "../assets/audio/falaq.mp3";
 import asr from "../assets/audio/asr.mp3";
 import fil from "../assets/audio/fil.mp3";
@@ -125,7 +129,7 @@ const QuestionCard = () => {
   const [correctAnswers, setCorrectAnswers] = useState(0);
   const audioRef = useRef(new Audio(questions[0].audio));
   const navigate = useNavigate();
-  // 🔁 Savol o‘zgarganda audio yangilansin
+  const modalRef = useRef(null);
   useEffect(() => {
     audioRef.current.pause();
     audioRef.current = new Audio(questions[current].audio);
@@ -167,11 +171,18 @@ const QuestionCard = () => {
   };
 
   const questionModal = document.querySelector(".questionModal");
+
   function openModal() {
-    questionModal.style.display = "flex";
+    if (modalRef.current) {
+      modalRef.current.style.display = "flex";
+    }
+    // questionModal.style.display = "flex";
   }
   function closeModal() {
-    questionModal.style.display = "none";
+    if (modalRef.current) {
+      modalRef.current.style.display = "none";
+    }
+    // questionModal.style.display = "none";
   }
   function acseptCloseModal() {
     navigate("/user/stage");
@@ -181,7 +192,7 @@ const QuestionCard = () => {
   let correctAnswear;
   return (
     <div className="card-container">
-      <div className="questionModal">
+      <div  ref={modalRef}  className="questionModal">
         <div className="middle">
           <h1>
             Agar chiqsangiz, testni qaytadan boshlashingizga to’g’ri keladi!
@@ -246,7 +257,7 @@ const QuestionCard = () => {
         </div>
 
         <button className="next-btn" onClick={handleNext} disabled={!answered}>
-          {current + 1 === questions.length ? "Tugatish" : "Keyingi test →"}
+          {current + 1 === questions.length ? "Tugatish" : "Keyingi test"}
         </button>
       </div>
     </div>

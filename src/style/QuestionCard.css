@@ -24,22 +24,52 @@
     font-size: 1.1rem;
     color: #333;
     text-align: center;
+    position: relative;
   }
   
   .back-btn {
-    background: none;
-    border: none;
-    font-size: 1.2rem;
-    color: white;
+    position: absolute;
     cursor: pointer;
     width: 40px;
     height: 40px;
-    border: 1px solid #5e3f2c;
     border-radius: 50%;
     display: flex;
     align-items: center;
     justify-content: center;
-    background: #5e3f2c;
+    background: #618765;
+    color: white;
+    overflow: visible;
+    z-index: 1;
+    border: none;
+    font-size: 18px;
+  }
+
+  .back-btn::before{
+    content: "";
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    background: #618765;
+    border-radius: 50%;
+    animation: pulse 1.5s infinite;
+    z-index: -1; /* orqada bo'lsin */
+    top: 0;
+    left: 0;
+    opacity: 0.6;
+  }
+
+  @keyframes pulse {
+    0% {
+      transform: scale(1);
+      opacity: 0.6;
+    }
+    50% {
+      opacity: 0.4;
+    }
+    100% {
+      transform: scale(1.5);
+      opacity: 0;
+    }
   }
   
   .audio-play {
