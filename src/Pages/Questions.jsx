@@ -121,6 +121,7 @@ const QuestionCard = () => {
   const [selected, setSelected] = useState(null);
   const [answered, setAnswered] = useState(false);
   const [isPlaying, setIsPlaying] = useState(false);
+  const [correctAnswers, setCorrectAnswers] = useState(0);
   const audioRef = useRef(new Audio(questions[0].audio));
   const navigate = useNavigate();
   // 🔁 Savol o‘zgarganda audio yangilansin
@@ -134,6 +135,10 @@ const QuestionCard = () => {
     if (!answered) {
       setSelected(index);
       setAnswered(true);
+
+      if (options[index].isCorrect) {
+        setCorrectAnswers((prev) => prev + 1);
+      }
     }
   };
 
@@ -142,8 +147,12 @@ const QuestionCard = () => {
       setCurrent((prev) => prev + 1);
       setSelected(null);
       setAnswered(false);
+    } else {
+      audioRef.current.pause();
+      navigate("/result", {state: {score: correctAnswers}});
     }
   };
+
 
   const toggleAudio = () => {
     const audio = audioRef.current;
@@ -164,11 +173,11 @@ const QuestionCard = () => {
     questionModal.style.display = "none";
   }
   function acseptCloseModal() {
-    navigate('/user/stage')
+    navigate("/user/stage");
   }
 
   const { text, options } = questions[current];
-
+  let correctAnswear;
   return (
     <div className="card-container">
       <div className="questionModal">
@@ -222,9 +231,11 @@ const QuestionCard = () => {
                 disabled={answered}>
                 <span className="label">{option.label}</span>
                 <span className="text">{option.text}</span>
+
                 {answered && isSelected && !isCorrect && (
                   <FaTimesCircle className="icon wrong-icon" />
                 )}
+
                 {answered && isCorrect && (
                   <FaCheckCircle className="icon correct-icon" />
                 )}

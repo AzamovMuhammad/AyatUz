@@ -19,6 +19,7 @@ import TestType from "./Pages/TestType";
 import Stage from "./Pages/Stage";
 import EntryTest from "./Pages/entryTest";
 import Questions from "./Pages/Questions";
+import FinalResult from "./Pages/finalResult";
 
 function App() {
   const [loadingComplete, setLoadingComplete] = useState(false);
@@ -67,6 +68,7 @@ function AppContent({ loadingComplete, setLoadingComplete, languageSelected }) {
       </Route>
       <Route path="/entry" element={<EntryTest />} />
       <Route path="/question" element={<Questions />} />
+      <Route path="/result" element={<FinalResult />} />
     </Routes>
   );
 }

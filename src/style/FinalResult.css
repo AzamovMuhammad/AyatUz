@@ -1,0 +1,82 @@
+.result-container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding: 40px 20px;
+    background: #f0f0f0;
+    min-height: 100vh;
+  }
+  
+  .result-card {
+    background: white;
+    padding: 30px 40px;
+    border-radius: 20px;
+    width: 100%;
+    max-width: 400px;
+    text-align: center;
+    box-shadow: 0 10px 20px rgba(0,0,0,0.1);
+  }
+  
+  .result-card.success {
+    border-top: 10px solid #A3D8A5;
+  }
+  
+  .result-card.fail {
+    border-top: 10px solid #F28C8C;
+  }
+  
+  .result-card h1 {
+    font-size: 28px;
+    margin-bottom: 8px;
+  }
+  
+  .result-card p {
+    margin: 8px 0;
+    font-size: 16px;
+    color: #666;
+  }
+  
+  .result-card h2 {
+    font-size: 48px;
+    color: #E29578;
+  }
+  
+  .result-card h2 span {
+    font-size: 24px;
+    color: #ccc;
+  }
+  
+  .main-btn {
+    background-color: #6EC867;
+    color: white;
+    border: none;
+    border-radius: 10px;
+    padding: 12px 24px;
+    margin: 20px 0;
+    font-size: 16px;
+    cursor: pointer;
+  }
+  
+  .result-card.fail .main-btn {
+    background-color: #F28C8C;
+  }
+  
+  .actions {
+    display: flex;
+    justify-content: space-between;
+    font-size: 14px;
+    color: #666;
+  }
+  
+  .actions div {
+    display: flex;
+    align-items: center;
+    gap: 6px;
+    cursor: pointer;
+    transition: 0.3s;
+  }
+  
+  .actions div:hover {
+    color: #111;
+  }
+  
