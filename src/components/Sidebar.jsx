@@ -14,16 +14,16 @@ function Sidebar({ isOpen, onClose }) {
         <img src={logoImg} alt="Logo" />
       </div>
       <nav className="nav-links">
-        <NavLink to="/user/home" className="link" onClick={onClose}>
+        <NavLink to="/user/home" className={({isActive}) => isActive ? "link active" : "link"} onClick={onClose}>
           {currentLang?.header.btn1}
         </NavLink>
-        <NavLink to="/user/save" className="link" onClick={onClose}>
+        <NavLink to="/user/save" className={({isActive}) => isActive ? "link active" : "link"} onClick={onClose}>
           {currentLang?.header.btn2}
         </NavLink>
-        <NavLink to="/user/about" className="link" onClick={onClose}>
+        <NavLink to="/user/about" className={({isActive}) => isActive ? "link active" : "link"} onClick={onClose}>
           {currentLang?.header.btn3}
         </NavLink>
-        <NavLink to="/user/more" className="link" onClick={onClose}>
+        <NavLink to="/user/more" className={({isActive}) => isActive ? "link active" : "link"} onClick={onClose}>
           {currentLang?.header.btn4}
         </NavLink>
       </nav>

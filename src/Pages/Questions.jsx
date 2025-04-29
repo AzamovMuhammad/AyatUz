@@ -5,8 +5,6 @@ import { FaArrowRight } from "react-icons/fa6";
 import { useNavigate } from "react-router-dom";
 import "../style/QuestionCard.css";
 
-
-
 import falaq from "../assets/audio/falaq.mp3";
 import asr from "../assets/audio/asr.mp3";
 import fil from "../assets/audio/fil.mp3";
@@ -154,10 +152,9 @@ const QuestionCard = () => {
       setAnswered(false);
     } else {
       audioRef.current.pause();
-      navigate("/result", {state: {score: correctAnswers}});
+      navigate("/result", { state: { score: correctAnswers } });
     }
   };
-
 
   const toggleAudio = () => {
     const audio = audioRef.current;
@@ -192,7 +189,7 @@ const QuestionCard = () => {
   let correctAnswear;
   return (
     <div className="card-container">
-      <div  ref={modalRef}  className="questionModal">
+      <div ref={modalRef} className="questionModal">
         <div className="middle">
           <h1>
             Agar chiqsangiz, testni qaytadan boshlashingizga to’g’ri keladi!
@@ -210,7 +207,7 @@ const QuestionCard = () => {
       <div className="card">
         <div className="header">
           <button onClick={openModal} className="back-btn">
-            <FaArrowLeftLong/>
+            <FaArrowLeftLong />
           </button>
           <h2>
             {current + 1}-savol / {questions.length} savol

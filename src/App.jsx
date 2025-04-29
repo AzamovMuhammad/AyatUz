@@ -62,8 +62,8 @@ function AppContent({ loadingComplete, setLoadingComplete, languageSelected }) {
         <Route path="more" element={<More />} />
         <Route path="save" element={<Save />} />
         <Route path="about" element={<About />} />
-        <Route path="test" element={<TestType />} />
-        <Route path="stage" element={<Stage />} />
+        <Route path="home/test" element={<TestType />} />
+        <Route path="home/stage" element={<Stage />} />
         <Route path="*" element={<NotFoundPage />} />
       </Route>
       <Route path="/entry" element={<EntryTest />} />

@@ -41,10 +41,10 @@ function TestType() {
       <img src={img} alt="" />
       <h1>{currentLang?.testTypePart.h1}</h1>
       <div className="btns">
-        <button onClick={() => {navigate(`/user/stage`)}}>{currentLang?.testTypePart.btn1}</button>
-        <button onClick={() => {navigate(`/user/stage`)}}>{currentLang?.testTypePart.btn2}</button>
-        <button onClick={() => {navigate(`/user/stage`)}}>{currentLang?.testTypePart.btn3}</button>
-        <button onClick={() => {navigate(`/user/stage`)}}>{currentLang?.testTypePart.btn4}</button>
+        <button onClick={() => {navigate(`/user/home/stage`)}}>{currentLang?.testTypePart.btn1}</button>
+        <button onClick={() => {navigate(`/user/home/stage`)}}>{currentLang?.testTypePart.btn2}</button>
+        <button onClick={() => {navigate(`/user/home/stage?type=juz`)}}>{currentLang?.testTypePart.btn3}</button>
+        <button onClick={() => {navigate(`/user/home/stage`)}}>{currentLang?.testTypePart.btn4}</button>
       </div>
     </div>
   );

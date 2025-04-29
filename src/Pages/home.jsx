@@ -20,7 +20,7 @@ const navigate = useNavigate();
       <h2 className="home_text">
     {currentLang?.homePart.home_text}
       </h2>
-      <button className="home_btn" onClick={() => {navigate(`/user/test`)}}>
+      <button className="home_btn" onClick={() => {navigate(`/user/home/test`)}}>
         {currentLang?.homePart.home_btn} <FaCircleArrowRight />{" "}
       </button>
     </div>
