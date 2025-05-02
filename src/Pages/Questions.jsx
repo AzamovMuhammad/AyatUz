@@ -2,7 +2,7 @@ import React, { useState, useRef, useEffect } from "react";
 import { FaPlay, FaCheckCircle, FaTimesCircle } from "react-icons/fa";
 import { FaArrowLeftLong } from "react-icons/fa6";
 import { FaArrowRight } from "react-icons/fa6";
-import { useNavigate } from "react-router-dom";
+import { useNavigate, useSearchParams } from "react-router-dom";
 import "../style/QuestionCard.css";
 
 import falaq from "../assets/audio/falaq.mp3";
@@ -125,9 +125,14 @@ const QuestionCard = () => {
   const [answered, setAnswered] = useState(false);
   const [isPlaying, setIsPlaying] = useState(false);
   const [correctAnswers, setCorrectAnswers] = useState(0);
+  const [searchParams] = useSearchParams()
+
+
   const audioRef = useRef(new Audio(questions[0].audio));
   const navigate = useNavigate();
   const modalRef = useRef(null);
+  const type = searchParams.get('type')
+
   useEffect(() => {
     audioRef.current.pause();
     audioRef.current = new Audio(questions[current].audio);
@@ -167,8 +172,8 @@ const QuestionCard = () => {
     setIsPlaying(!isPlaying);
   };
 
+  
   const questionModal = document.querySelector(".questionModal");
-
   function openModal() {
     if (modalRef.current) {
       modalRef.current.style.display = "flex";
@@ -182,7 +187,7 @@ const QuestionCard = () => {
     // questionModal.style.display = "none";
   }
   function acseptCloseModal() {
-    navigate("/user/stage");
+    navigate(`/user/home/stage?type=${type}`);
   }
 
   const { text, options } = questions[current];

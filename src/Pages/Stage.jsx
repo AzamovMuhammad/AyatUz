@@ -18,6 +18,7 @@ function Stage() {
         .then((res) => {
           if (questType === 'quiz') {
             setQuestion(res.data.results);
+            console.log(question);
           } else {
             setQuestion(res.data);
           }
@@ -44,7 +45,7 @@ function Stage() {
           key={level.id}
           className={`level-btn unlocked`}
           onClick={() => {
-            navigate("/entry");
+            navigate(`/entry?type=${questType}&id=${level.id}`);
           }}>
           <span>{level.count} - bosqich</span>
           <FaPlay />

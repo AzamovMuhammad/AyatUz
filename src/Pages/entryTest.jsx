@@ -1,14 +1,17 @@
 import React, { useEffect } from "react";
-import { useNavigate } from "react-router-dom";
+import { useNavigate, useSearchParams } from "react-router-dom";
 import "../style/entryTest.css";
 
 function EntryTest() {
   const navigate = useNavigate();
+  const [searchParams] = useSearchParams();
+  const type = searchParams.get("type");
+  const id = searchParams.get("id");
 
   useEffect(() => {
     const timer = setTimeout(() => {
-      navigate("/question");
-    }, 5000); // 5000ms = 5 sekund
+      navigate(`/question?type=${type}&id=${id}`);
+    }, 5000);
 
     return () => clearTimeout(timer); // Komponent unmount bo‘lsa tozalanadi
   }, [navigate]);
