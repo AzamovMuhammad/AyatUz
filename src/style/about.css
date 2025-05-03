@@ -39,6 +39,7 @@ img {
   flex-wrap: wrap-reverse;
 }
 .about_page p {
+  color: #121212;
   width: 450px;
   font-size: clamp(16px, 2vw, 20px);
 }

@@ -18,7 +18,7 @@ function Stage() {
         .then((res) => {
           if (questType === 'quiz') {
             setQuestion(res.data.results);
-            console.log(question);
+            
           } else {
             setQuestion(res.data);
           }
@@ -47,7 +47,8 @@ function Stage() {
           onClick={() => {
             navigate(`/entry?type=${questType}&id=${level.id}`);
           }}>
-          <span>{level.count} - bosqich</span>
+          <span>{level.index-10000} - bosqich</span>
+          <span>{level.count} ta savol</span>
           <FaPlay />
         </div>
       ))}
