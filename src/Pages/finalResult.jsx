@@ -1,39 +1,36 @@
-import React from 'react';
-import { useLocation, useNavigate } from 'react-router-dom';
-import { FaShareAlt, FaRedo, FaHome } from 'react-icons/fa';
-import '../style/FinalResult.css';
+import React from "react";
+import { useLocation, useNavigate, useSearchParams } from "react-router-dom";
+import "../style/FinalResult.css";
 
 function FinalResult() {
   const location = useLocation();
   const navigate = useNavigate();
-  const score = location.state?.score || 0;
 
-  const isPassed = score >= 6;
+  const type = location.state?.questType || null;
+  const numOfQuestion = location.state?.numOfQuest || 0;
+  const forPass = Math.ceil(numOfQuestion * 0.6);
+  const score = location.state?.score || 0;
+  const isPassed = score >= forPass;
+
 
   return (
     <div className="result-container">
-      <div className={`result-card ${isPassed ? 'success' : 'fail'}`}>
-        <h1>{isPassed ? 'Barakalloh!' : 'Afsus'}</h1>
-        <p>Siz 1-darajadan {isPassed ? 'o‘tdingiz!' : 'o‘tolmadingiz!'}</p>
+      <div className={`result-card ${isPassed ? "success" : "fail"}`}>
+        <h1>{isPassed ? "Barakalloh!" : "Afsus"}</h1>
+        <p>Siz 1-bosqichdan {isPassed ? "o‘tdingiz!" : "o‘tolmadingiz!"}</p>
         <h2>
-          {score}/<span>10</span>
+          {score}/<span>{numOfQuestion}</span>
         </h2>
-        <p>{score} ta savolga to‘g‘ri javob berdingiz</p>
+        <p>
+          {score === numOfQuestion
+            ? `Siz barcha savolga to'g'ri javob berdingiz`
+            : `${score} ta savolga to‘g‘ri javob berdingiz`}
+        </p>
         <button
           className="main-btn"
-          onClick={() => navigate(isPassed ? '/level2' : '/user/stage')}
-        >
-          {isPassed ? 'Keyingi bosqich' : 'Qayta topshirish'}
+          onClick={() => navigate(`/user/home/stage?type=${type}`)}>
+          {isPassed ? `Bosh sahifaga qaytish` : "Qayta topshirish"}
         </button>
-
-        <div className="actions">
-          <div>
-            <FaShareAlt /> Natijani ulashish
-          </div>
-          <div>
-            <FaHome /> Bosh sahifaga qaytish
-          </div>
-        </div>
       </div>
     </div>
   );

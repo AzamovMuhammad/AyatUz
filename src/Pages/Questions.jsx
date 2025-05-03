@@ -30,7 +30,6 @@ const QuestionCard = () => {
       .then((res) => setQuestions(res.data))
       .catch((err) => console.error(err));
   }, [type, id]);
-  console.log(questions);
 
   // Load new audio when current question changes
   useEffect(() => {
@@ -46,16 +45,15 @@ const QuestionCard = () => {
     if (!answered) {
       setSelected(index);
       setAnswered(true);
-  
+
       const selectedAnswerId = questions[current]?.answers[index]?.id;
       const correctAnswerId = questions[current]?.correct_answer?.id;
-  
+
       if (selectedAnswerId === correctAnswerId) {
         setCorrectAnswers((prev) => prev + 1);
       }
     }
   };
-  
 
   // Move to next question or finish
   const handleNext = () => {
@@ -65,7 +63,13 @@ const QuestionCard = () => {
       setAnswered(false);
     } else {
       audioRef.current?.pause();
-      navigate(`/result?num=${questions.length}`, { state: { score: correctAnswers } });
+      navigate(`/result`, {
+        state: {
+          score: correctAnswers,
+          numOfQuest: questions.length,
+          questType: type,
+        },
+      });
     }
   };
 
@@ -131,7 +135,8 @@ const QuestionCard = () => {
         <div className="options">
           {options.map((option, idx) => {
             const isSelected = selected === idx;
-            const isCorrect = questions[current]?.correct_answer?.id === option?.id;
+            const isCorrect =
+              questions[current]?.correct_answer?.id === option?.id;
 
             return (
               <button
