@@ -10,25 +10,35 @@ function Stage() {
   const [question, setQuestion] = useState([]);
   const [searchParams] = useSearchParams();
   const questType = searchParams.get("type");
+  const navigate = useNavigate();
 
   useEffect(() => {
-    try {
-      axios
-        .get(`https://api.ayatquiz.com/api/v1/public/web/${questType}/`)
-        .then((res) => {
-          if (questType === 'quiz') {
-            setQuestion(res.data.results);
-            
-          } else {
-            setQuestion(res.data);
-          }
-        });
-    } catch (error) {
-      console.log(error);
-    }
-  }, []);
+    const fetchData = async () => {
+      try {
+        const res = await axios.get(
+          "https://api.ayatquiz.com/api/v1/public/web/quiz/?ordering"
+        );
+        if (questType === "quiz") {
+          setQuestion(res.data.results);
+        } else {
+          setQuestion(res.data);
+        }
+      } catch (error) {
+        console.log("Xatolik:", error);
+      }
+    };
 
-  const navigate = useNavigate();
+    fetchData();
+  }, [questType]);
+
+  console.log(question);
+  const completedStages =
+    JSON.parse(localStorage.getItem("completedStages")) || [];
+
+  const isUnlocked = (index) => {
+    if (index === 10001) return true; // always unlock first
+    return completedStages.includes(index - 1);
+  };
 
   return (
     <div className="level-container">
@@ -40,18 +50,23 @@ function Stage() {
         <FaArrowLeftLong />
       </button>
       <h1 className="intro-text">Bismillahir rohmanir rohiym, boshladik!</h1>
-      {question.map((level) => (
-        <div
-          key={level.id}
-          className={`level-btn unlocked`}
-          onClick={() => {
-            navigate(`/entry?type=${questType}&id=${level.id}`);
-          }}>
-          <span>{level.index-10000} - bosqich</span>
-          <span>{level.count} ta savol</span>
-          <FaPlay />
-        </div>
-      ))}
+      {question.map((level) => {
+        const unlocked = isUnlocked(level.index);
+        return (
+          <div
+            key={level.id}
+            className={`level-btn ${unlocked ? "unlocked" : "locked"}`}
+            onClick={() => {
+              if (unlocked) {
+                navigate(`/entry?type=${questType}&id=${level.id}`);
+              }
+            }}>
+            <span>{level.index - 10000} - bosqich</span>
+            <span>{level.count} ta savol</span>
+            {unlocked ? <FaPlay /> : <FaLock />}
+          </div>
+        );
+      })}
     </div>
   );
 }
