@@ -1,9 +1,18 @@
-import React from "react";
+import React, { useEffect } from "react";
 import { FaArrowRight, FaPaperPlane, FaStar, FaComment } from "react-icons/fa";
 import languages from "../language/language";
 import "../style/more.css";
+import { useNavigate } from "react-router-dom";
 
 function More() {
+
+  const navigate = useNavigate();
+  useEffect(() => {
+    const isEntered = localStorage.getItem("selectedLanguage");
+    if (!isEntered) {
+      navigate("/");
+    }
+  }, []);
 
   const savedLang = localStorage.getItem("selectedLanguage")
   const currentLang = languages.find((lang) => lang.code === savedLang)
