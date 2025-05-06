@@ -1,3 +1,67 @@
+// import axios from "axios";
+// import React, { useState, useRef, useEffect } from "react";
+// import { useSearchParams } from "react-router-dom";
+
+// const QuestionCard = () => {
+//   const [searchParams] = useSearchParams();
+//   const [savollar, setSavollar] = useState();
+
+//   const type = searchParams.get("type");
+//   const id = searchParams.get("id");
+
+//   useEffect(() => {
+//     axios
+//       .get(
+//         `https://api.ayatquiz.com/api/v1/public/web/${type}/${id}/generate/?ordering=${type}`
+//       )
+//       .then((res) => {
+//         setSavollar(res.data);
+//       })
+//       .catch((err) => console.error(err));
+//   }, []);
+
+//   console.log(id);
+//   console.log("Res:", savollar);
+
+//   return (
+//     <div className="card-container">
+//       <h1>Salom</h1>
+//     </div>
+//   );
+// };
+
+// export default QuestionCard;
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 import React, { useState, useRef, useEffect } from "react";
 import { FaPlay, FaCheckCircle, FaTimesCircle } from "react-icons/fa";
 import { FaArrowLeftLong } from "react-icons/fa6";
@@ -16,6 +80,7 @@ const QuestionCard = () => {
 
   const type = searchParams.get("type");
   const id = searchParams.get("id");
+  console.log(id);
 
   const navigate = useNavigate();
   const modalRef = useRef(null);
@@ -23,13 +88,24 @@ const QuestionCard = () => {
 
   // Load questions from API
   useEffect(() => {
-    axios
-      .get(
-        `https://api.ayatquiz.com/api/v1/public/web/${type}/${id}/generate/?ordering=${type}`
-      )
-      .then((res) => setQuestions(res.data))
-      .catch((err) => console.error(err));
+    let isMounted = true; // faqat so'nggi so'rov ishlasin
+    if (type && id) {
+      axios
+        .get(`https://api.ayatquiz.com/api/v1/public/web/${type}/${id}/generate/?ordering=${type}`)
+        .then((res) => {
+          if (isMounted) {
+            console.log("Loaded:", id, res.data);
+            setQuestions(res.data);
+          }
+        })
+        .catch((err) => console.error(err));
+    }
+    return () => {
+      isMounted = false; // eski so‘rov kelganda natijani yozmasin
+    };
   }, [type, id]);
+
+  console.log(questions);
 
   // Load new audio when current question changes
   useEffect(() => {
@@ -68,6 +144,7 @@ const QuestionCard = () => {
           score: correctAnswers,
           numOfQuest: questions.length,
           questType: type,
+          testIndex: 10001,
         },
       });
     }

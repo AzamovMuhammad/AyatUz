@@ -1,5 +1,5 @@
-import React from "react";
-import { useLocation, useNavigate, useSearchParams } from "react-router-dom";
+import React, { useEffect } from "react";
+import { useLocation, useNavigate } from "react-router-dom";
 import "../style/FinalResult.css";
 
 function FinalResult() {
@@ -8,10 +8,13 @@ function FinalResult() {
 
   const type = location.state?.questType || null;
   const numOfQuestion = location.state?.numOfQuest || 0;
-  const forPass = Math.ceil(numOfQuestion * 0.6);
   const score = location.state?.score || 0;
+
+  const forPass = Math.ceil(numOfQuestion * 0.6);
   const isPassed = score >= forPass;
 
+  const current = parseInt(localStorage.getItem("currentStageIndex")) || 10001;
+  localStorage.setItem("currentStageIndex", current + 1);
 
   return (
     <div className="result-container">

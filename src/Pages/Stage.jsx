@@ -16,12 +16,17 @@ function Stage() {
     const fetchData = async () => {
       try {
         const res = await axios.get(
-          "https://api.ayatquiz.com/api/v1/public/web/quiz/?ordering"
+          "https://api.ayatquiz.com/api/v1/public/web/quiz/"
         );
-        if (questType === "quiz") {
-          setQuestion(res.data.results);
-        } else {
-          setQuestion(res.data);
+        const questions = questType === "quiz" ? res.data.results : res.data;
+        setQuestion(questions);
+
+        // Faqat birinchi renderda localStorage ga yozish (agar yo'q bo'lsa)
+        if (
+          !localStorage.getItem("currentStageIndex") &&
+          questions.length > 0
+        ) {
+          localStorage.setItem("currentStageIndex", questions[0].index);
         }
       } catch (error) {
         console.log("Xatolik:", error);
@@ -31,14 +36,11 @@ function Stage() {
     fetchData();
   }, [questType]);
 
-  console.log(question);
-  const completedStages =
-    JSON.parse(localStorage.getItem("completedStages")) || [];
+const currentStageIndex = parseInt(localStorage.getItem("currentStageIndex")) || 0;
 
-  const isUnlocked = (index) => {
-    if (index === 10001) return true; // always unlock first
-    return completedStages.includes(index - 1);
-  };
+const isUnlocked = (index) => {
+  return index <= currentStageIndex;
+};
 
   return (
     <div className="level-container">
