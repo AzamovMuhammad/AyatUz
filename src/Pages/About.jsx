@@ -1,13 +1,22 @@
-import React from "react";
+import React, { useEffect } from "react";
 import "../style/about.css";
 
-import oldQuron from  '../assets/image/about/quron_old.webp'
-import quron from '../assets/image/about/quron.jpg'
+import oldQuron from "../assets/image/about/quron_old.webp";
+import quron from "../assets/image/about/quron.jpg";
+import { useNavigate } from "react-router-dom";
 
 function About() {
+  const navigate = useNavigate()
+  useEffect(() => {
+    const isEntered = localStorage.getItem("selectedLanguage");
+    if (!isEntered) {
+      navigate('/')
+    }
+  }, []);
+
   return (
     <div className="about_page">
-        <h1>Qur'on haqida</h1>
+      <h1>Qur'on haqida</h1>
       <div className="firtInfo">
         <img src={oldQuron} alt="" />
         <p>
