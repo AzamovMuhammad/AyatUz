@@ -13,7 +13,7 @@ function EntryTest() {
       navigate(`/question?type=${type}&id=${id}`);
     }, 5000);
 
-    return () => clearTimeout(timer); // Komponent unmount bo‘lsa tozalanadi
+    return () => clearTimeout(timer);
   }, [navigate]);
 
   return (

@@ -16,10 +16,13 @@ function Stage() {
     const fetchData = async () => {
       try {
         const res = await axios.get(
-          "https://api.ayatquiz.com/api/v1/public/web/quiz/"
+          `https://api.ayatquiz.com/api/v1/public/web/quiz/`
         );
         const questions = questType === "quiz" ? res.data.results : res.data;
         setQuestion(questions);
+        console.log(questions);
+        
+        
 
         // Faqat birinchi renderda localStorage ga yozish (agar yo'q bo'lsa)
         if (
