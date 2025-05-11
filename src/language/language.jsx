@@ -52,6 +52,9 @@ const languages = [
       span1: "bosqich",
       span2: "ta savol",
     },
+    entryTestPart: {
+      p: " A'uuzu billahi minash shaytonir rojiym. Bismillahir Rohmanir Rohiym!",
+    },
   },
   {
     code: "ru",
@@ -101,6 +104,9 @@ const languages = [
       span1: "этап",
       span2: "вопросы",
     },
+    entryTestPart: {
+      p: " А‘узу биллях и мин аш-шайтанир-раджим. Бисмиллях ир-рахман ир-рахим.",
+    },
   },
   {
     code: "en",
@@ -146,9 +152,13 @@ const languages = [
       closeBtn: "Got it, Thanks",
     },
     stagePart: {
-      intro_text: "In the name of Allah, the Most Gracious, the Most Merciful, we have begun!",
+      intro_text:
+        "In the name of Allah, the Most Gracious, the Most Merciful, we have begun!",
       span1: "phase",
       span2: "questions",
+    },
+    entryTestPart: {
+      p: "A'udhu billahi min ash-shaytan ir-rajim. Bismillahir-Rahmanir-Rahim.",
     },
   },
   {
@@ -198,6 +208,9 @@ const languages = [
       intro_text: "Rahman ve Rahim olan Allah’ın adıyla, başladık!",
       span1: "sahne",
       span2: "sorular",
+    },
+    entryTestPart: {
+      p: "Euzü billahi mine'ş-şeytani'r-racim. Bismillahirrahmanirrahim.",
     },
   },
 ];

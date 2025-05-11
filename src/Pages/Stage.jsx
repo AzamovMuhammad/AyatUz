@@ -16,7 +16,7 @@ function Stage() {
   const currentLang = languages.find((lang) => lang.code === savedLang);
 
   useEffect(() => {
-    const isEntered = localStorage.getItem("selectedLanguage");
+    const isEntered = savedLang;
     if (!isEntered) {
       navigate("/");
     }
