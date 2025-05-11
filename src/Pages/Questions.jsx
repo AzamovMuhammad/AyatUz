@@ -1,37 +1,3 @@
-// import axios from "axios";
-// import React, { useState, useRef, useEffect } from "react";
-// import { useSearchParams } from "react-router-dom";
-
-// const QuestionCard = () => {
-//   const [searchParams] = useSearchParams();
-//   const [savollar, setSavollar] = useState();
-
-//   const type = searchParams.get("type");
-//   const id = searchParams.get("id");
-
-//   useEffect(() => {
-//     axios
-//       .get(
-//         `https://api.ayatquiz.com/api/v1/public/web/${type}/${id}/generate/?ordering=${type}`
-//       )
-//       .then((res) => {
-//         setSavollar(res.data);
-//       })
-//       .catch((err) => console.error(err));
-//   }, []);
-
-//   console.log(id);
-//   console.log("Res:", savollar);
-
-//   return (
-//     <div className="card-container">
-//       <h1>Salom</h1>
-//     </div>
-//   );
-// };
-
-// export default QuestionCard;
-
 import React, { useState, useRef, useEffect } from "react";
 import { FaPlay, FaCheckCircle, FaTimesCircle } from "react-icons/fa";
 import { FaArrowLeftLong } from "react-icons/fa6";

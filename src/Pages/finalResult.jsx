@@ -1,6 +1,7 @@
 import React, { useEffect } from "react";
 import { useLocation, useNavigate } from "react-router-dom";
 import "../style/FinalResult.css";
+import languages from "../language/language";
 
 function FinalResult() {
   const location = useLocation();
@@ -13,26 +14,37 @@ function FinalResult() {
   const forPass = Math.ceil(numOfQuestion * 0.6);
   const isPassed = score >= forPass;
 
-  const current = parseInt(localStorage.getItem("currentStageIndex")) || 10001;
+  const current = parseInt(localStorage.getItem("currentStageIndex"));
   localStorage.setItem("currentStageIndex", current + 1);
+
+
+  const savedLang = localStorage.getItem("selectedLanguage");
+  const currentLang = languages.find((lang) => lang.code === savedLang);
+
+  useEffect(() => {
+    const isEntered = savedLang;
+    if (!isEntered) {
+      navigate("/")
+    }
+  }, [])
 
   return (
     <div className="result-container">
       <div className={`result-card ${isPassed ? "success" : "fail"}`}>
-        <h1>{isPassed ? "Barakalloh!" : "Afsus"}</h1>
-        <p>Siz 1-bosqichdan {isPassed ? "o‘tdingiz!" : "o‘tolmadingiz!"}</p>
+        <h1>{isPassed ? currentLang?.finalResult.isPassedT : currentLang?.finalResult.isPassedF}</h1>
+        <p>{isPassed ? currentLang?.finalResult.pass : currentLang?.finalResult.noPass}</p>
         <h2>
           {score}/<span>{numOfQuestion}</span>
         </h2>
         <p>
           {score === numOfQuestion
-            ? `Siz barcha savolga to'g'ri javob berdingiz`
-            : `${score} ta savolga to‘g‘ri javob berdingiz`}
+            ? `${currentLang?.finalResult.fullScore}`
+            : `${score} ${currentLang?.finalResult.anyScore}`}
         </p>
         <button
           className="main-btn"
           onClick={() => navigate(`/user/home/stage?type=${type}`)}>
-          {isPassed ? `Bosh sahifaga qaytish` : "Qayta topshirish"}
+          {isPassed ? currentLang?.finalResult.back : currentLang?.finalResult.repass}
         </button>
       </div>
     </div>
