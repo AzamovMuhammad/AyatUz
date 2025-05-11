@@ -11,20 +11,19 @@ function Stage() {
   const [searchParams] = useSearchParams();
   const questType = searchParams.get("type");
   const navigate = useNavigate();
-
+  console.log(questType);
+  
   useEffect(() => {
     const fetchData = async () => {
       try {
         const res = await axios.get(
-          `https://api.ayatquiz.com/api/v1/public/web/quiz/`
+          `https://api.ayatquiz.com/api/v1/public/web/${questType}/?ordering=-index`
         );
-        const questions = questType === "quiz" ? res.data.results : res.data;
+        console.log("to‘liq res.data:", res.data);
+        console.log("res.data.results:", res.data.results);
+        const questions = res.data.results;
         setQuestion(questions);
-        console.log(questions);
-        
-        
-
-        // Faqat birinchi renderda localStorage ga yozish (agar yo'q bo'lsa)
+        console.log("useState question:", questions);
         if (
           !localStorage.getItem("currentStageIndex") &&
           questions.length > 0
@@ -35,15 +34,21 @@ function Stage() {
         console.log("Xatolik:", error);
       }
     };
+    console.log(question);
 
     fetchData();
   }, [questType]);
 
-const currentStageIndex = parseInt(localStorage.getItem("currentStageIndex")) || 0;
+  useEffect(() => {
+    console.log("useEffectdagi question:", question);
+  }, [question]);
 
-const isUnlocked = (index) => {
-  return index <= currentStageIndex;
-};
+  const currentStageIndex =
+    parseInt(localStorage.getItem("currentStageIndex")) || 0;
+
+  const isUnlocked = (index) => {
+    return index <= currentStageIndex;
+  };
 
   return (
     <div className="level-container">
@@ -55,23 +60,24 @@ const isUnlocked = (index) => {
         <FaArrowLeftLong />
       </button>
       <h1 className="intro-text">Bismillahir rohmanir rohiym, boshladik!</h1>
-      {question.map((level) => {
-        const unlocked = isUnlocked(level.index);
-        return (
-          <div
-            key={level.id}
-            className={`level-btn ${unlocked ? "unlocked" : "locked"}`}
-            onClick={() => {
-              if (unlocked) {
-                navigate(`/entry?type=${questType}&id=${level.id}`);
-              }
-            }}>
-            <span>{level.index - 10000} - bosqich</span>
-            <span>{level.count} ta savol</span>
-            {unlocked ? <FaPlay /> : <FaLock />}
-          </div>
-        );
-      })}
+      {[...question].reverse().map((level, idx) => {
+  const unlocked = isUnlocked(level.index);
+  return (
+    <div
+      key={level.id}
+      className={`level-btn ${unlocked ? "unlocked" : "locked"}`}
+      onClick={() => {
+        if (unlocked) {
+          navigate(`/entry?type=${questType}&id=${level.id}`);
+        }
+      }}>
+      <span>{idx + 1} - bosqich</span>
+      <span>{level.count} ta savol</span>
+      {unlocked ? <FaPlay /> : <FaLock />}
+    </div>
+  );
+})}
+
     </div>
   );
 }
