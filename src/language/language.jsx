@@ -55,6 +55,16 @@ const languages = [
     entryTestPart: {
       p: " A'uuzu billahi minash shaytonir rojiym. Bismillahir Rohmanir Rohiym!",
     },
+    questionPart: {
+      modalH1:
+        "Agar chiqsangiz, testni qaytadan boshlashingizga to’g’ri keladi!",
+      btnRozi: "Roziman",
+      btnBekor: "Bekor qilish",
+      currentH2: "savol",
+      lengthH2: "ta savol",
+      btnFinish: "Tugatish",
+      btnNext: "Keyingi test",
+    },
   },
   {
     code: "ru",
@@ -106,6 +116,16 @@ const languages = [
     },
     entryTestPart: {
       p: " А‘узу биллях и мин аш-шайтанир-раджим. Бисмиллях ир-рахман ир-рахим.",
+    },
+    questionPart: {
+      modalH1:
+        "Если вы прекратите проходить тест, вам придется начать его заново!",
+      btnRozi: "Я согласен.",
+      btnBekor: "Отмена",
+      currentH2: "вопрос",
+      lengthH2: "вопросы",
+      btnFinish: "Заканчивать",
+      btnNext: "Следующий тест",
     },
   },
   {
@@ -160,6 +180,16 @@ const languages = [
     entryTestPart: {
       p: "A'udhu billahi min ash-shaytan ir-rajim. Bismillahir-Rahmanir-Rahim.",
     },
+    questionPart: {
+      modalH1:
+        "If you quit the test, you will have to start it over!",
+      btnRozi: "Agree",
+      btnBekor: "Cancel",
+      currentH2: "question",
+      lengthH2: "questions",
+      btnFinish: "Finish",
+      btnNext: "Next test",
+    },
   },
   {
     code: "tr",
@@ -211,6 +241,16 @@ const languages = [
     },
     entryTestPart: {
       p: "Euzü billahi mine'ş-şeytani'r-racim. Bismillahirrahmanirrahim.",
+    },
+    questionPart: {
+      modalH1:
+        "Sınavdan ayrılırsanız sınava tekrar başlatmanız gerekecektir!",
+      btnRozi: "Kabul ediyorum.",
+      btnBekor: "İptal etmek",
+      currentH2: "soru",
+      lengthH2: "sorular",
+      btnFinish: "Sona ermek",
+      btnNext: "Sonraki test",
     },
   },
 ];

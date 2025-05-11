@@ -32,42 +32,13 @@
 
 // export default QuestionCard;
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
 import React, { useState, useRef, useEffect } from "react";
 import { FaPlay, FaCheckCircle, FaTimesCircle } from "react-icons/fa";
 import { FaArrowLeftLong } from "react-icons/fa6";
 import { useNavigate, useSearchParams } from "react-router-dom";
 import axios from "axios";
 import "../style/QuestionCard.css";
+import languages from "../language/language";
 
 const QuestionCard = () => {
   const [questions, setQuestions] = useState([]);
@@ -80,21 +51,30 @@ const QuestionCard = () => {
 
   const type = searchParams.get("type");
   const id = searchParams.get("id");
-  console.log(id);
+  const savedLang = localStorage.getItem("selectedLanguage");
+  const currentLang = languages.find((lang) => lang.code === savedLang);
 
   const navigate = useNavigate();
   const modalRef = useRef(null);
   const audioRef = useRef(null);
+
+  useEffect(() => {
+    const isEntered = savedLang;
+    if (!isEntered) {
+      navigate("/");
+    }
+  }, []);
 
   // Load questions from API
   useEffect(() => {
     let isMounted = true; // faqat so'nggi so'rov ishlasin
     if (type && id) {
       axios
-        .get(`https://api.ayatquiz.com/api/v1/public/web/${type}/${id}/generate/?ordering=${type}`)
+        .get(
+          `https://api.ayatquiz.com/api/v1/public/web/${type}/${id}/generate/?ordering=${type}`
+        )
         .then((res) => {
           if (isMounted) {
-            console.log("Loaded:", id, res.data);
             setQuestions(res.data);
           }
         })
@@ -104,8 +84,6 @@ const QuestionCard = () => {
       isMounted = false; // eski so‘rov kelganda natijani yozmasin
     };
   }, [type, id]);
-
-  console.log(questions);
 
   // Load new audio when current question changes
   useEffect(() => {
@@ -144,7 +122,7 @@ const QuestionCard = () => {
           score: correctAnswers,
           numOfQuest: questions.length,
           questType: type,
-          testIndex: 10001,
+          testIndex: 1,
         },
       });
     }
@@ -177,15 +155,13 @@ const QuestionCard = () => {
     <div className="card-container">
       <div ref={modalRef} className="questionModal">
         <div className="middle">
-          <h1>
-            Agar chiqsangiz, testni qaytadan boshlashingizga to’g’ri keladi!
-          </h1>
+          <h1>{currentLang?.questionPart.modalH1}</h1>
           <div className="questionBtns">
             <button onClick={acseptCloseModal} className="rozi">
-              Roziman
+              {currentLang?.questionPart.btnRozi}
             </button>
             <button onClick={closeModal} className="bekor">
-              Bekor qilish
+              {currentLang?.questionPart.btnBekor}
             </button>
           </div>
         </div>
@@ -198,7 +174,7 @@ const QuestionCard = () => {
             <FaArrowLeftLong />
           </button>
           <h2>
-            {current + 1}-savol / {questions.length} savol
+            {current + 1}-{currentLang?.questionPart.currentH2} / {questions.length} {currentLang?.questionPart.lengthH2}
           </h2>
           <p>{currentQuestion?.text}</p>
         </div>
@@ -245,7 +221,7 @@ const QuestionCard = () => {
 
         {/* Next question */}
         <button className="next-btn" onClick={handleNext} disabled={!answered}>
-          {current + 1 === questions.length ? "Tugatish" : "Keyingi test"}
+          {current + 1 === questions.length ? currentLang?.questionPart.btnFinish : currentLang?.questionPart.btnNext}
         </button>
       </div>
     </div>
