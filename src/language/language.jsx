@@ -68,7 +68,7 @@ const languages = [
     finalResult: {
       isPassedT: "Barakalloh!",
       isPassedF: "Afsus!",
-      pass:"Siz ushbu bosqichdan o‘tdingiz!",
+      pass: "Siz ushbu bosqichdan o‘tdingiz!",
       noPass: "Siz ushbu bosqichdan o‘tolmadingiz!",
       fullScore: "Siz barcha savolga to'g'ri javob berdingiz",
       anyScore: "ta savolga to‘g‘ri javob berdingiz",
@@ -136,10 +136,11 @@ const languages = [
       lengthH2: "вопросы",
       btnFinish: "Заканчивать",
       btnNext: "Следующий тест",
-    },    finalResult: {
+    },
+    finalResult: {
       isPassedT: "Бог благословил!",
       isPassedF: "Извини!",
-      pass:"Вы прошли этот этап!",
+      pass: "Вы прошли этот этап!",
       noPass: "Вы не прошли этот этап!",
       fullScore: "Вы ответили правильно на все вопросы.",
       anyScore: "Вы ответили на эти вопросы правильно.",
@@ -200,18 +201,18 @@ const languages = [
       p: "A'udhu billahi min ash-shaytan ir-rajim. Bismillahir-Rahmanir-Rahim.",
     },
     questionPart: {
-      modalH1:
-        "If you quit the test, you will have to start it over!",
+      modalH1: "If you quit the test, you will have to start it over!",
       btnRozi: "Agree",
       btnBekor: "Cancel",
       currentH2: "question",
       lengthH2: "questions",
       btnFinish: "Finish",
       btnNext: "Next test",
-    },    finalResult: {
+    },
+    finalResult: {
       isPassedT: "God bless!",
       isPassedF: "Sorry!",
-      pass:"You've passed this stage!",
+      pass: "You've passed this stage!",
       noPass: "You failed this stage!",
       fullScore: "You answered all the questions correctly.",
       anyScore: "You answered this questions correctly.",
@@ -271,18 +272,18 @@ const languages = [
       p: "Euzü billahi mine'ş-şeytani'r-racim. Bismillahirrahmanirrahim.",
     },
     questionPart: {
-      modalH1:
-        "Sınavdan ayrılırsanız sınava tekrar başlatmanız gerekecektir!",
+      modalH1: "Sınavdan ayrılırsanız sınava tekrar başlatmanız gerekecektir!",
       btnRozi: "Kabul ediyorum.",
       btnBekor: "İptal etmek",
       currentH2: "soru",
       lengthH2: "sorular",
       btnFinish: "Sona ermek",
       btnNext: "Sonraki test",
-    },    finalResult: {
+    },
+    finalResult: {
       isPassedT: "Tanrı seni korusun!",
       isPassedF: "Üzgünüm!",
-      pass:"Bu aşamayı geçtiniz!",
+      pass: "Bu aşamayı geçtiniz!",
       noPass: "Bu aşamayı geçemedin!",
       fullScore: "Soruların hepsini doğru cevapladın.",
       anyScore: "soruyu doğru cevapladın.",

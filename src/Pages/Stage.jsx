@@ -26,7 +26,7 @@ function Stage() {
     const fetchData = async () => {
       try {
         const res = await axios.get(
-          `https://api.ayatquiz.com/api/v1/public/web/${questType}/?ordering=-index`
+          `https://api.ayatquiz.com/api/v1/public/web/${questType}/?ordering=index`
         );
         const questions = res.data.results;
         setQuestion(questions);
@@ -44,12 +44,23 @@ function Stage() {
     fetchData();
   }, [questType]);
 
-
   const currentStageIndex =
     parseInt(localStorage.getItem("currentStageIndex")) || 0;
 
   const isUnlocked = (index) => {
     return index <= currentStageIndex;
+  };
+
+  const getTwoId = (index) => {
+    const currentIndex = question.findIndex((item) => item.index === index);
+    const firstId = currentIndex + 1;
+    let nextId;
+    if (currentIndex !== -1 && currentIndex + 1 < question.length) {
+      nextId = question[currentIndex + 1].index;
+    }
+
+    localStorage.setItem("firstId", firstId);
+    localStorage.setItem("nextId", nextId);
   };
 
   return (
@@ -62,7 +73,7 @@ function Stage() {
         <FaArrowLeftLong />
       </button>
       <h1 className="intro-text">{currentLang?.stagePart.intro_text}</h1>
-      {[...question].reverse().map((level, idx) => {
+      {question.map((level, idx) => {
         const unlocked = isUnlocked(level.index);
         return (
           <div
@@ -70,11 +81,16 @@ function Stage() {
             className={`level-btn ${unlocked ? "unlocked" : "locked"}`}
             onClick={() => {
               if (unlocked) {
+                getTwoId(level.index);
                 navigate(`/entry?type=${questType}&id=${level.id}`);
               }
             }}>
-            <span>{idx + 1} - {currentLang?.stagePart.span1}</span>
-            <span>{level.count} {currentLang?.stagePart.span2}</span>
+            <span>
+              {idx + 1} - {currentLang?.stagePart.span1}
+            </span>
+            <span>
+              {level.count} {currentLang?.stagePart.span2}
+            </span>
             {unlocked ? <FaPlay /> : <FaLock />}
           </div>
         );

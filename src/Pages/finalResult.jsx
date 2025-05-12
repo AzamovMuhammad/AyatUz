@@ -14,8 +14,17 @@ function FinalResult() {
   const forPass = Math.ceil(numOfQuestion * 0.6);
   const isPassed = score >= forPass;
 
-  const current = parseInt(localStorage.getItem("currentStageIndex"));
-  localStorage.setItem("currentStageIndex", current + 1);
+  const firstId = localStorage.getItem("firstId");
+  const nextId = localStorage.getItem("nextId");
+  function backToStage() {    
+    const current = parseInt(localStorage.getItem("currentStageIndex"));
+    if (firstId >= current) {
+      localStorage.setItem("currentStageIndex", nextId);
+    }
+    navigate(`/user/home/stage?type=${type}`)
+    localStorage.removeItem('firstId');
+    localStorage.removeItem('nextId');
+  }
 
 
   const savedLang = localStorage.getItem("selectedLanguage");
@@ -43,7 +52,7 @@ function FinalResult() {
         </p>
         <button
           className="main-btn"
-          onClick={() => navigate(`/user/home/stage?type=${type}`)}>
+          onClick={() => backToStage()}>
           {isPassed ? currentLang?.finalResult.back : currentLang?.finalResult.repass}
         </button>
       </div>
