@@ -6,7 +6,7 @@
 .menu-toggle {
   display: none;
   position: fixed;
-  top: 10px;
+  top: 30px;
   left: 10px;
   z-index: 1001;
   background: transparent;

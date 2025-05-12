@@ -18,7 +18,7 @@ function UserLayout() {
         <FaBars size={24} />
       </button>
 
-      <Sidebar isOpen={sidebarOpen} onClose={() => setSidebarOpen(false)} />
+      <Sidebar className="sidebar" isOpen={sidebarOpen} onClose={() => setSidebarOpen(false)} />
 
       <main className="main-content">
         <Outlet />
