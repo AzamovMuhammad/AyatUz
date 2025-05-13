@@ -66,7 +66,7 @@ function Stage() {
   return (
     <div className="level-container">
       <button
-        className="shadow"
+        className="shadow3"
         onClick={() => {
           navigate("/user/home/test");
         }}>
