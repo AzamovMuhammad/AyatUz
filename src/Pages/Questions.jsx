@@ -134,13 +134,14 @@ const QuestionCard = () => {
       </div>
 
       {/* Main quiz card */}
+      <button onClick={openModal} className="back-btn">
+        <FaArrowLeftLong />
+      </button>
       <div className="card">
         <div className="header">
-          <button onClick={openModal} className="back-btn">
-            <FaArrowLeftLong />
-          </button>
           <h2>
-            {current + 1}-{currentLang?.questionPart.currentH2} / {questions.length} {currentLang?.questionPart.lengthH2}
+            {current + 1}-{currentLang?.questionPart.currentH2} /{" "}
+            {questions.length} {currentLang?.questionPart.lengthH2}
           </h2>
           <p>{currentQuestion?.text}</p>
         </div>
@@ -187,7 +188,9 @@ const QuestionCard = () => {
 
         {/* Next question */}
         <button className="next-btn" onClick={handleNext} disabled={!answered}>
-          {current + 1 === questions.length ? currentLang?.questionPart.btnFinish : currentLang?.questionPart.btnNext}
+          {current + 1 === questions.length
+            ? currentLang?.questionPart.btnFinish
+            : currentLang?.questionPart.btnNext}
         </button>
       </div>
     </div>
