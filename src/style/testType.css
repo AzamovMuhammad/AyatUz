@@ -10,7 +10,7 @@
 .container img {
   width: clamp(200px, 60vw, 400px);
 }
-.chooseH1{
+.chooseH1 {
   text-align: center;
 }
 .btns {
@@ -38,37 +38,39 @@
   background: white;
   border: 2px solid #618765;
 }
-.shadow {
+.shadow2 {
   position: fixed;
-  cursor: pointer;
+  top: 20px;
+  right: 20px !important;
   width: 40px;
   height: 40px;
   border-radius: 50%;
-  background: #0ef726;
   color: white;
-  overflow: visible;
-  z-index: 1;
-  right: 0px;
-  top: 10px;
+  background: #618765;
+  display: flex;
+  align-items: center;
+  justify-content: center;
   border: none;
+  z-index: 9999;
+  cursor: pointer;
   font-size: 18px;
 }
 
-.shadow::before {
+.shadow2::before {
   content: "";
   position: absolute;
   width: 100%;
   height: 100%;
-  background: #618765;
+  background: #618765 !important;
   border-radius: 50%;
   animation: pulse 1.5s infinite;
   z-index: -1;
   opacity: 0.6;
 }
-@media(max-width: 770px){
-  .shadow{
-    position: fixed;
-    left: 70px !important;
+@media (max-width: 770px) {
+  .shadow2 {
+    /* position: fixed; */
+    right: 10px !important;
   }
 }
 
