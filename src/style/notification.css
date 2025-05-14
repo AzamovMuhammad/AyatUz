@@ -6,7 +6,7 @@
   color: white;
   padding: 12px 24px;
   border-radius: 8px;
-  z-index: 1000;
+  z-index: 1000111;
   opacity: 0;
   transform: translateX(0%);
   animation: slideInFromLeft 0.4s ease-out forwards;

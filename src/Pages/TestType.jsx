@@ -18,6 +18,7 @@ function closeModal() {
 function TestType() {
   const savedLang = localStorage.getItem("selectedLanguage");
   const currentLang = languages.find((lang) => lang.code === savedLang);
+  
   const navigate = useNavigate();
   const { showNotification } = useNotification();
 

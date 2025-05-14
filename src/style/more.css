@@ -17,7 +17,8 @@
 }
 
 .menu-item {
-  width: 250px;
+  max-width: 320px;
+  width: 100%;
   border:1px solid #593A28;
   display: flex;
   align-items: center;
@@ -35,20 +36,16 @@
 
 .menu-text {
   width: 80%;
-  font-size: 14px;
+  font-size: clamp(12px, 10vw, 18px);
   font-weight: 600;
   color: #333;
 }
 
 .menu-icon {
-  width: 36px !important;
-  height: 36px !important;
-  padding: 5px;
   display: flex;
   align-items: center;
   justify-content: center;
   border-radius: 50%;
-  background-color: #e0c9b8;
   color: #6b4f4f;
   font-size: 18px;
 }
@@ -67,11 +64,6 @@
     font-size: 14px;
   }
 
-  .menu-icon {
-    width: 32px;
-    height: 32px;
-    font-size: 16px;
-  }
 }
 
 @media (max-width: 350px) {
@@ -79,3 +71,91 @@
     width: 80%;
   }
 }
+
+
+
+
+/* share modal */
+.shareModal {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  min-height: 100vh;
+  background: #121212da;
+  display: none;
+  align-items: center;
+  justify-content: center;
+  z-index: 1111;
+}
+copiedText {
+  color: green;
+  margin-left: 10px;
+  font-size: 14px;
+}
+
+.inputGroup {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  flex-wrap: wrap;
+  gap: 10px;
+  padding: 12px;
+  background: #ffffff;
+  border-radius: 12px;
+  box-shadow: 0 8px 24px rgba(0, 0, 0, 0.1);
+  animation: fadeIn 0.4s ease-in-out;
+  max-width: 350px;
+  width: 80%;
+  box-sizing: border-box;
+}
+
+.inputGroup input {
+  max-width: 350px;
+  width: 80%;
+  flex: 1;
+  padding: 10px;
+  border: 2px solid #e0e0e0;
+  border-radius: 8px;
+  font-size: clamp(12px, 7vw, 18px);
+  outline: none;
+  transition: border 0.3s ease, box-shadow 0.3s ease;
+}
+
+.inputGroup input:focus {
+  border-color: #4a90e2;
+  box-shadow: 0 0 0 4px rgba(74, 144, 226, 0.2);
+}
+
+.inputGroup button {
+  background-color: #4a90e2;
+  color: white;
+  border: none;
+  padding: 10px 14px;
+  border-radius: 8px;
+  cursor: pointer;
+  font-size: 18px;
+  transition: background-color 0.3s ease, transform 0.2s ease;
+}
+
+.inputGroup button:hover {
+  background-color: #3b7dd8;
+  transform: scale(1.05);
+}
+
+.inputGroup button:active {
+  transform: scale(0.95);
+}
+
+/* Fade in animation */
+@keyframes fadeIn {
+  0% {
+    opacity: 0;
+    transform: translateY(12px);
+  }
+  100% {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
