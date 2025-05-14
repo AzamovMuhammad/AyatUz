@@ -8,7 +8,7 @@ export const NotificationProvider = ({ children }) => {
   const [notification, setNotification] = useState(null);
   const [isExiting, setIsExiting] = useState(false);
 
-  const showNotification = (message, type = 'info', duration = 5000) => {
+  const showNotification = (message, type = 'info', duration = 3000) => {
     setNotification({ message, type });
     setIsExiting(false);
 

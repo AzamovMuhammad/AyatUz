@@ -5,6 +5,8 @@ import { useNavigate, useSearchParams } from "react-router-dom";
 import axios from "axios";
 import "../style/QuestionCard.css";
 import languages from "../language/language";
+import { HashLoader } from "react-spinners";
+
 
 const QuestionCard = () => {
   const [questions, setQuestions] = useState([]);
@@ -14,6 +16,7 @@ const QuestionCard = () => {
   const [isPlaying, setIsPlaying] = useState(false);
   const [correctAnswers, setCorrectAnswers] = useState(0);
   const [searchParams] = useSearchParams();
+  const [loading, setLoading] = useState(false);
 
   const type = searchParams.get("type");
   const id = searchParams.get("id");
@@ -35,6 +38,7 @@ const QuestionCard = () => {
   useEffect(() => {
     let isMounted = true; // faqat so'nggi so'rov ishlasin
     if (type && id) {
+      setLoading(true);
       axios
         .get(
           `https://api.ayatquiz.com/api/v1/public/web/${type}/${id}/generate/?ordering=${type}`
@@ -44,7 +48,12 @@ const QuestionCard = () => {
             setQuestions(res.data);
           }
         })
-        .catch((err) => console.error(err));
+        .catch((err) => console.error(err))
+        .finally(() => {
+          if (isMounted) {
+            setLoading(false); // so‘rov tugaganda false
+          }
+        });
     }
     return () => {
       isMounted = false; // eski so‘rov kelganda natijani yozmasin
@@ -119,80 +128,89 @@ const QuestionCard = () => {
 
   return (
     <div className="card-container">
-      <div ref={modalRef} className="questionModal">
-        <div className="middle">
-          <h1>{currentLang?.questionPart.modalH1}</h1>
-          <div className="questionBtns">
-            <button onClick={acseptCloseModal} className="rozi">
-              {currentLang?.questionPart.btnRozi}
-            </button>
-            <button onClick={closeModal} className="bekor">
-              {currentLang?.questionPart.btnBekor}
+      {loading ? (
+        <HashLoader color="#4caf50" size={100} speedMultiplier={1} />
+      ) : (
+        <>
+          <div ref={modalRef} className="questionModal">
+            <div className="middle">
+              <h1>{currentLang?.questionPart.modalH1}</h1>
+              <div className="questionBtns">
+                <button onClick={acseptCloseModal} className="rozi">
+                  {currentLang?.questionPart.btnRozi}
+                </button>
+                <button onClick={closeModal} className="bekor">
+                  {currentLang?.questionPart.btnBekor}
+                </button>
+              </div>
+            </div>
+          </div>
+
+          <button onClick={openModal} className="back-btn">
+            <FaArrowLeftLong />
+          </button>
+
+          <div className="card">
+            <div className="header">
+              <h2>
+                {current + 1}-{currentLang?.questionPart.currentH2} /{" "}
+                {questions.length} {currentLang?.questionPart.lengthH2}
+              </h2>
+              <p>{currentQuestion?.text}</p>
+            </div>
+
+            <div className="audio-play" onClick={toggleAudio}>
+              <FaPlay
+                size={32}
+                style={{ color: isPlaying ? "green" : "black" }}
+              />
+            </div>
+
+            <div className="options">
+              {options.map((option, idx) => {
+                const isSelected = selected === idx;
+                const isCorrect =
+                  questions[current]?.correct_answer?.id === option?.id;
+
+                return (
+                  <button
+                    key={idx}
+                    className={`option ${isSelected ? "selected" : ""} ${
+                      answered
+                        ? isCorrect
+                          ? "correct"
+                          : isSelected
+                          ? "wrong"
+                          : ""
+                        : ""
+                    }`}
+                    onClick={() => handleOptionClick(idx)}
+                    disabled={answered}>
+                    <span className="label">{option.surah?.name}</span>
+
+                    {answered && isSelected && !isCorrect && (
+                      <FaTimesCircle className="icon wrong-icon" />
+                    )}
+
+                    {answered && isCorrect && (
+                      <FaCheckCircle className="icon correct-icon" />
+                    )}
+                  </button>
+                );
+              })}
+            </div>
+
+            <button
+              className="next-btn"
+              onClick={handleNext}
+              disabled={!answered}>
+              {current + 1 === questions.length
+                ? currentLang?.questionPart.btnFinish
+                : currentLang?.questionPart.btnNext}
             </button>
           </div>
-        </div>
-      </div>
-
-      {/* Main quiz card */}
-      <button onClick={openModal} className="back-btn">
-        <FaArrowLeftLong />
-      </button>
-      <div className="card">
-        <div className="header">
-          <h2>
-            {current + 1}-{currentLang?.questionPart.currentH2} /{" "}
-            {questions.length} {currentLang?.questionPart.lengthH2}
-          </h2>
-          <p>{currentQuestion?.text}</p>
-        </div>
-
-        {/* Audio button */}
-        <div className="audio-play" onClick={toggleAudio}>
-          <FaPlay size={32} style={{ color: isPlaying ? "green" : "black" }} />
-        </div>
-
-        {/* Answer options */}
-        <div className="options">
-          {options.map((option, idx) => {
-            const isSelected = selected === idx;
-            const isCorrect =
-              questions[current]?.correct_answer?.id === option?.id;
-
-            return (
-              <button
-                key={idx}
-                className={`option ${isSelected ? "selected" : ""} ${
-                  answered
-                    ? isCorrect
-                      ? "correct"
-                      : isSelected
-                      ? "wrong"
-                      : ""
-                    : ""
-                }`}
-                onClick={() => handleOptionClick(idx)}
-                disabled={answered}>
-                <span className="label">{option.surah?.name}</span>
-
-                {answered && isSelected && !isCorrect && (
-                  <FaTimesCircle className="icon wrong-icon" />
-                )}
-
-                {answered && isCorrect && (
-                  <FaCheckCircle className="icon correct-icon" />
-                )}
-              </button>
-            );
-          })}
-        </div>
-
-        {/* Next question */}
-        <button className="next-btn" onClick={handleNext} disabled={!answered}>
-          {current + 1 === questions.length
-            ? currentLang?.questionPart.btnFinish
-            : currentLang?.questionPart.btnNext}
-        </button>
-      </div>
+        </>
+      )}
     </div>
   );
 };
