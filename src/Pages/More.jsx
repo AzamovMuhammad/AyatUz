@@ -10,12 +10,10 @@ function More() {
   const savedLang = localStorage.getItem("selectedLanguage");
   const currentLang = languages.find((lang) => lang.code === savedLang);
 
-
-  const shareRef = useRef(null);
   const shareModal = useRef(null);
 
   const [copied, setCopied] = useState(false);
-  const link = "https://mywebsite.com";
+  const link = "https://ayatquiz.com/";
   const { showNotification } = useNotification();
 
   useEffect(() => {
@@ -24,6 +22,12 @@ function More() {
       navigate("/");
     }
   }, []);
+  const handleClickNoti = () => {
+    showNotification(
+      "Kechirasiz, sahifa ishlab chiqilmoqda. Tez kunda ishga tushadi.",
+      "info"
+    );
+  };
 
   const handleShareNoti = async () => {
     try {
@@ -39,6 +43,11 @@ function More() {
     }
   };
 
+  const handleSelectLang = () => {
+    localStorage.removeItem("selectedLanguage");
+    navigate("/language");
+  };
+
   const openShareModal = () => {
     shareModal.current.style.display = "flex";
   };
@@ -50,26 +59,24 @@ function More() {
     {
       text: `${currentLang?.morePart.btn1}`,
       icon: <FaArrowRight />,
-      func: openShareModal,
+      func: handleSelectLang,
     },
     {
       text: `${currentLang?.morePart.btn2}`,
       icon: <FaPaperPlane />,
       func: openShareModal,
     },
-    { 
-      text: `${currentLang?.morePart.btn3}`, 
-      icon: <FaStar />, 
-      func: openShareModal, 
-  },
+    {
+      text: `${currentLang?.morePart.btn3}`,
+      icon: <FaStar />,
+      func: handleClickNoti,
+    },
     {
       text: `${currentLang?.morePart.btn4}`,
       icon: <FaComment />,
       func: openShareModal,
     },
   ];
-
-
 
   return (
     <div className="morePart">
