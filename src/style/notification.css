@@ -1,5 +1,6 @@
 .notification {
   position: fixed;
+  width: 280px;
   top: 20px;
   right: 20px; /* Chap tomondan chiqadi */
   background: #222;

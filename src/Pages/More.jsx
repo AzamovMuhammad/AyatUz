@@ -51,9 +51,14 @@ function More() {
   const openShareModal = () => {
     shareModal.current.style.display = "flex";
   };
+
   const closeShareModal = () => {
     shareModal.current.style.display = "none";
   };
+
+  const goToTelegram = () => {
+    window.open('https://t.me/ayat_quiz_support_bot', '_blank')
+  }
 
   const menuItems = [
     {
@@ -74,7 +79,7 @@ function More() {
     {
       text: `${currentLang?.morePart.btn4}`,
       icon: <FaComment />,
-      func: openShareModal,
+      func: goToTelegram,
     },
   ];
 
