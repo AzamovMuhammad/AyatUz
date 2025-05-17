@@ -2,6 +2,7 @@ import uzFlag from "../assets/image/flags/uz.png";
 import ruFlag from "../assets/image/flags/ru.png";
 import enFlag from "../assets/image/flags/en.png";
 import trFlag from "../assets/image/flags/tr.png";
+import kaaFlag from "../assets/image/flags/kaa.png";
 
 const languages = [
   {
@@ -74,6 +75,78 @@ const languages = [
       anyScore: "ta savolga to‘g‘ri javob berdingiz",
       back: "Bosh sahifaga qaytish",
       repass: "Qayta topshirish",
+    },
+  },
+  {
+    code: "kaa",
+    name: "Qr",
+    flag: kaaFlag,
+    langPart: {
+      h2: "Tildi tańlaw ",
+      button: "Dawam etiw",
+    },
+    homePart: {
+      home_title: "Assalawma aleykum áziz dindoshim!",
+      home_text:
+        "Usı testte siz Quranı Saqıy ayatların tıńlab, olardı qaysı suraga tiyisli ekenligin tabıwıńız kerek.",
+      home_btn: "Testti tapsırıw ",
+    },
+    header: {
+      btn1: "Bas bet",
+      btn2: "Saqlanganlar",
+      btn3: "Quran haiqda",
+      btn4: "Kóbirek",
+    },
+    notFound: {
+      p: "Bul qáte!",
+      h3: "Bul serverde so'ralgan url tabılmadı. Biz bilgen hámme zat sol.",
+    },
+    morePart: {
+      btn1: "Til",
+      btn2: "Qosımshanı doslarǵa jalǵawıń ",
+      btn3: "Qosımshanı bahalań ",
+      btn4: "Programmistler menen baylanısıw ",
+    },
+    testTypePart: {
+      h1: "Iltimas, test túrin saylań ",
+      btn1: "Basqıshpa-basqısh ",
+      btn2: "Pútkil Quran boyınsha ",
+      btn3: "Juz boyınsha ",
+      btn4: "Súre boyınsha ",
+      h3: "Quranı Saqıy ayatların zawıq menen tıńlań hám tabıń!",
+      p1: "1. Basqıshpa-basqısh test túri tek Pátiya súresi hám 30 - Juzda kelgen ayatlardan alınǵan. Bul test sınaqlarında siz oyatni tıńlab qaysı suraga tiyisli ekenligin tabıwıńız kerek boladı.",
+      p2: "2. Pútkil Quran boyınsha test sorawlarında Quranı Saqıydaǵı qálegen ayat qiroati esittiriledi, hám sizdan qaysı suraning nechinchi oyati ekenligin juwaplardan tańlawıńız soraladı.",
+      p3: "3. Juz boyınsha test túrinde bolsa siz málim bir Juzni tańlawıńız múmkin. Sorawlar tek áne sol saylanǵan juzdan tosınarlı (random) jaǵdayda beriledi. Sizdan tosınarlı jaǵdayda esittirilgan ayatlar qaysı suraning nechinchi ayatları ekenligin juwaplardan tabıwıńız soraladı.",
+      p4: "4. Súre boyınsha test túrinde bolsa esittirilgan ayat qiroatini saylanǵan Suraning qaysı oyati ekenligin tabıwıńız kerek boladı.",
+      closeBtn: "Túsinikli, raxmet",
+    },
+    stagePart: {
+      intro_text: "Bismillahir rohmanir rohiym, basladık!",
+      span1: "basqısh ",
+      span2: "ta soraw ",
+    },
+    entryTestPart: {
+      p: " A'uuzu billahi minash shaytanir rojiym. Bismillahir Rohmanir Rohiym!",
+    },
+    questionPart: {
+      modalH1:
+        "Eger shıqsańız, testti qaytaldan baslawıngizga tuwrı keledi!",
+      btnRozi: "Roziman",
+      btnBekor: "Bıykarlaw ",
+      currentH2: "soraw ",
+      lengthH2: "ta soraw ",
+      btnFinish: "Tamamlaw ",
+      btnNext: "Keyingi test",
+    },
+    finalResult: {
+      isPassedT: "Bereketlloh!",
+      isPassedF: "Pushayman !",
+      pass: "Siz bul basqıshdan óttińiz!",
+      noPass: "Siz bul basqıshdan o'tolmadingiz!",
+      fullScore: "Siz barlıq sorawǵa tuwrı juwap berdińiz",
+      anyScore: "ta sorawǵa tuwrı juwap berdińiz",
+      back: "Bas betke qaytıw ",
+      repass: "Qayta tapsırıw ",
     },
   },
   {

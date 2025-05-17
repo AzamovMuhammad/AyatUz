@@ -11,7 +11,7 @@ function FinalResult() {
   const numOfQuestion = location.state?.numOfQuest || 0;
   const score = location.state?.score || 0;
 
-  const forPass = Math.ceil(numOfQuestion * 0.6);
+  const forPass = Math.ceil(numOfQuestion * 0.8);
   const isPassed = score >= forPass;
 
   const firstId = localStorage.getItem("firstId");
