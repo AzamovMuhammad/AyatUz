@@ -60,6 +60,8 @@ const QuestionCard = () => {
     };
   }, [type, id]);
 
+  console.log(questions);
+  
   // Load new audio when current question changes
   useEffect(() => {
     if (questions.length > 0 && questions[current]?.audio?.file) {

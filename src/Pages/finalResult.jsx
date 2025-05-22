@@ -11,19 +11,23 @@ function FinalResult() {
   const numOfQuestion = location.state?.numOfQuest || 0;
   const score = location.state?.score || 0;
 
-  const forPass = Math.ceil(numOfQuestion * 0.8);
+  const forPass = Math.round(numOfQuestion * 0.8);
   const isPassed = score >= forPass;
 
   const firstId = localStorage.getItem("firstId");
   const nextId = localStorage.getItem("nextId");
-  function backToStage() {    
-    const current = parseInt(localStorage.getItem("currentStageIndex"));
-    if (firstId >= current) {
-      localStorage.setItem("currentStageIndex", nextId);
+  function backToStage() {  
+    if (isPassed) {      
+      const current = parseInt(localStorage.getItem("currentStageIndex"));
+      if (firstId >= current) {
+        localStorage.setItem("currentStageIndex", nextId);
+      }
+      navigate(`/user/home/stage?type=${type}`)
+      localStorage.removeItem('firstId');
+      localStorage.removeItem('nextId');
+    }  else{
+      navigate(`/user/home/stage?type=${type}`)
     }
-    navigate(`/user/home/stage?type=${type}`)
-    localStorage.removeItem('firstId');
-    localStorage.removeItem('nextId');
   }
 
 
