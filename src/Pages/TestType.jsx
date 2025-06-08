@@ -1,7 +1,7 @@
 import React from "react";
 import "../style/testType.css";
 import { useNavigate } from "react-router-dom";
-import img from "../assets/image/testType/Quran_2.svg";
+import img from "/images/testType/Quran_2.webp";
 import { FaQuestion } from "react-icons/fa";
 import languages from "../language/language";
 import { useNotification } from "../components/Notification/NotificationContext";

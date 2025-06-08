@@ -3,7 +3,7 @@ import React, { useEffect } from "react";
 import languages from "../language/language";
 import { FaCircleArrowRight } from "react-icons/fa6";
 import "../style/homePage.css";
-import homeImg from "../assets/image/homeImg/man.png";
+import homeImg from "/images/homeImg/man.webp";
 import { useNavigate } from "react-router-dom";
 
 function Home() {

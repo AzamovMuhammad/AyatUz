@@ -1,8 +1,8 @@
 import React, { useEffect } from "react";
 import "../style/about.css";
 
-import oldQuron from "../assets/image/about/quron_old.webp";
-import quron from "../assets/image/about/quron.jpg";
+import oldQuron from "/images/about/quron_old.webp";
+import quron from "/images/about/quron.webp";
 import { useNavigate } from "react-router-dom";
 
 function About() {

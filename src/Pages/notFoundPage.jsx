@@ -1,5 +1,5 @@
 import React from 'react'
-import logo from '../assets/image/brandLogo/ayatLogo.png'
+import logo from '/images/brandLogo/ayatLogo.webp'
 import '../style/notFoundPage.css'
 import languages from '../language/language'
 

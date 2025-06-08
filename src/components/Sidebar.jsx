@@ -2,7 +2,7 @@ import React from "react";
 import { NavLink } from "react-router-dom";
 import '../style/header.css';
 import languages from "../language/language";
-import logoImg from '../assets/image/brandLogo/ayatLogo.png';
+import logoImg from '/images/brandLogo/ayatLogo.webp';
 
 function Sidebar({ isOpen, onClose }) {
   const savedLang = localStorage.getItem("selectedLanguage");

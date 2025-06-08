@@ -1,8 +1,8 @@
-import uzFlag from "../assets/image/flags/uz.png";
-import ruFlag from "../assets/image/flags/ru.png";
-import enFlag from "../assets/image/flags/en.png";
-import trFlag from "../assets/image/flags/tr.png";
-import kaaFlag from "../assets/image/flags/kaa.png";
+import uzFlag from "/images/flags/uz.webp";
+import ruFlag from "/images/flags/ru.webp";
+import enFlag from "/images/flags/en.webp";
+import trFlag from "/images/flags/tr.webp";
+import kaaFlag from "/images/flags/kaa.webp";
 
 const languages = [
   {

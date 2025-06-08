@@ -4,7 +4,7 @@
   display: flex;
   align-items: center;
   justify-content: center;
-  background: url("../assets/image/entry/entry.webp") center/cover no-repeat;
+  background: url("../../public/images/entry/entry.webp") center/cover no-repeat;
 }
 .enrty_container .middle {
   display: flex;
